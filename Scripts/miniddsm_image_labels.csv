@@ -1,0 +1,9 @@
+image_path,label
+miniddsm/Benign/B_3460_1.RIGHT_CC_Mask3.png,Benign
+miniddsm/Benign/B_3460_1.RIGHT_MLO_Mask3.png,Benign
+miniddsm/Benign/C_0078_1.LEFT_CC_Mask5.png,Benign
+miniddsm/Benign/C_0087_1.LEFT_MLO_Mask3.png,Benign
+miniddsm/Cancer/B_3034_1.LEFT_MLO_Mask3.png,Cancer
+miniddsm/Cancer/B_3045_1.LEFT_CC_Mask3.png,Cancer
+miniddsm/Cancer/C_0022_1.RIGHT_MLO_Mask3.png,Cancer
+miniddsm/Cancer/C_0025_1.RIGHT_CC_Mask6.png,Cancer
