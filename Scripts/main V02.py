@@ -19,8 +19,7 @@ device = utils.get_device()
 # assert df_train["Label"].isna().sum() == 0
 
 
-# df_train, train_dataset, train_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=64)
-train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=64)
+df_train, train_dataset, train_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=64)
 
 model = MinimalCNN().to(device)
 print(model)
@@ -35,5 +34,5 @@ print(f"Input batch shape: {images.shape}")
 print(f"Output shape: {outputs.shape}")
 
 # model = MinimalCNN().to(device)
-train_model(model, train_loader, val_loader,device, epochs=2)
-# train_model(model, train_loader, device, epochs=2)
+# train_model(model, train_loader, val_loader,device, epochs=2)
+train_model(model, train_loader, device, epochs=30)

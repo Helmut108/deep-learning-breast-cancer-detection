@@ -256,8 +256,11 @@ class MinimalCNN(nn.Module):
 
 
 def train_model(model, train_loader, val_loader, device, epochs=10, learning_rate=0.0001):
+# def train_model(model, train_loader, device, epochs=10, learning_rate=0.0001):
 
     print(epochs)
+    sys.exit("Stopping here for now")
+
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
