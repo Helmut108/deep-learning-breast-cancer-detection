@@ -56,7 +56,7 @@ class CBISDataset(Dataset):
 
 def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
     df_train = create_dataframe_from_csv(csv_path_train)
-    print(len(df_train))
+    print(f"Length of training dataframe: {len(df_train)}")
 
     if sample_size is not None:
         nbr_per_class = sample_size // 2
@@ -137,13 +137,17 @@ def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
     print(f"Validation DataLoader number of batches: {len(val_loader)}")
     print(f"Training DataLoader number of samples: {len(train_loader.dataset)}")
     print(f"Validation DataLoader number of samples: {len(val_loader.dataset)}")
+    print()
+    print(f"Train: {len(train_dataset)} samples, {len(train_loader)} batches")
+    print(f"Validation: {len(val_dataset)} samples, {len(val_loader)} batches")
+
     # print(type(train_dataset))
     # print(train_dataset["Label"].value_counts())
     # print(df_val["Label"].value_counts())
     # print(f"Training dataset label counts:\n{train_dataset['Labels'].value_counts()}")
     # print(f"Validation dataset label counts:\n{val_dataset['Labels'].value_counts()}")
 
-    # sys.exit("Stopping here for now")
+    # sys.exit("Stopping here for now")``
     # return df_train, train_dataset, train_loader, df_val, val_dataset, val_loader  
     return train_loader, val_loader   
  

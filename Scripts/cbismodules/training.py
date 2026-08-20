@@ -2,9 +2,15 @@
 import sys
 import torch
 import torch.nn as nn
+import subprocess
+import time
+
+# 1. Start the stopwatch
+start_time = time.perf_counter()
 
 def train_model(model, train_loader, val_loader, device, epochs=10, learning_rate=0.0001):
 # def train_model(model, train_loader, device, epochs=10, learning_rate=0.0001):
+    print(f"Epochs: {epochs}, Learning rate: {learning_rate}")
     print(f"len(train_loader): {len(train_loader)}")
     print(f"len(val_loader): {len(val_loader)}")
 
@@ -22,7 +28,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
     for epoch in range(epochs):
         
         # *** Training Loop ***
-        print(f"\n[EPOCH {epoch+1}/{epochs} TRAINING]")
+        # print(f"\n[EPOCH {epoch+1}/{epochs} TRAINING]")
         model.train() # Set the model to training mode for this epoch
         running_loss = 0.0
         total_train_samples = 0
@@ -44,14 +50,14 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
             loss = criterion(train_output, real_targets)
 
             predicted_train_labels = torch.argmax(train_output, dim=1)
-            print(f"{batch_idx} Batch index: {batch_idx}")
-            print(f".  Predicted train labels: {predicted_train_labels}")
+            # print(f"{batch_idx} Batch index: {batch_idx}")
+            # print(f".  Predicted train labels: {predicted_train_labels}")
             total_train_samples += real_targets.size(0)  # Update the total number of training samples processed
             correct_train_predictions = (predicted_train_labels == real_targets).sum().item()
-            print(f". Actual train labels:    {real_targets}")
-            print(f". Correct predictions in this batch: {correct_train_predictions} / {train_samples}")
+            # print(f". Actual train labels:    {real_targets}")
+            # print(f". Correct predictions in this batch: {correct_train_predictions} / {train_samples}")
             correct_train_predictions_sofar += correct_train_predictions
-            print(f".  Total correct predictions so far: {correct_train_predictions_sofar} / {total_train_samples}")
+            # print(f".  Total correct predictions so far: {correct_train_predictions_sofar} / {total_train_samples}")
 
             # Backward pass: calculate the new gradients based on the current loss
             loss.backward()
@@ -64,18 +70,21 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
             #     print(f"Epoch {epoch + 1}/{epochs} | Batch {batch_idx}, RunningLoss: {running_loss / (batch_idx + 1):.4f}")
                 # running_loss = 0.0
         
-        print(f"\n[EPOCH {epoch+1}/{epochs} TRAINING SUMMARY]")
+        # print(f"\n[EPOCH {epoch+1}/{epochs} TRAINING SUMMARY]")
         epoch_loss = running_loss / len(train_loader)
-        print(f"len(train_loader): {len(train_loader)}")
+        # print(f"len(train_loader): {len(train_loader)}")
         # print(f"Batch index: {batch_idx}")
-        print(f"--> Total training samples: {len(train_loader.dataset)}")
-        print(f"--> Total training samples processed: {total_train_samples}")
+        # print(f"--> Total training samples: {len(train_loader.dataset)}")
+        # print(f"--> Total training samples processed: {total_train_samples}")
 
         # accuracy_percentage = (correct_predictions / total_samples) * 100
-        print(f"--> Correct predictions: {correct_train_predictions_sofar}")
+        # print(f"--> Correct predictions: {correct_train_predictions_sofar}")
         epoch_accuracy = (correct_train_predictions_sofar / total_train_samples) * 100
-        print(f"--> Training accuracy for epoch {epoch + 1}: {epoch_accuracy:.2f}%")
-        print(f"--> Average training loss: {epoch_loss:.4f}")
+        # print(f"--> Training accuracy for epoch {epoch + 1}: {epoch_accuracy:.2f}%")
+        # print(f"--> Average training loss: {epoch_loss:.4f}")
+
+        # print(f"E{epoch + 1} Avg Train Loss: {epoch_loss:.4f} | Train Accuracy: {epoch_accuracy:.2f}%")
+        train_print = f"E{(epoch + 1):02d} Avg Train Loss: {epoch_loss:.4f} | Train Accuracy: {epoch_accuracy:.2f}%"
         # print(
         #     f"Epoch {epoch + 1}/{epochs} | "
         #     f"Average training loss: {epoch_loss:.4f}"
@@ -85,7 +94,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
         #           *** Evaluation Loop ***
         # **********************************************
 
-        print(f"\n[EPOCH {epoch+1}/{epochs} VALIDATION]")
+        # print(f"\n[EPOCH {epoch+1}/{epochs} VALIDATION]")
         model.eval()  # Set the model to evaluation mode for validation
         accumulated_val_loss = 0.0
         correct_val_predictions = 0
@@ -112,30 +121,37 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
                 # Count correct predictions
                 correct_val_predictions += (predicted_labels == val_targets).sum().item()
                 total_samples += val_targets.size(0) 
-                print(f".  Predicted: {predicted_labels}")
-                print(f"   Actual:   {val_targets}")
-                print(f"   Correct predictions in this batch: {(predicted_labels == val_targets).sum().item()} / {val_targets.size(0)}")
-                print(f"   Total correct predictions so far: {correct_val_predictions} / {total_samples}")
+                # print(f".  Predicted: {predicted_labels}")
+                # print(f"   Actual:   {val_targets}")
+                # print(f"   Correct predictions in this batch: {(predicted_labels == val_targets).sum().item()} / {val_targets.size(0)}")
+                # print(f"   Total correct predictions so far: {correct_val_predictions} / {total_samples}")
                 # print(f"Total samples processed so far: {total_samples}")
                 # print(f"Correct predictions so far: {correct_val_predictions} / {total_samples}")
 
-        print(f"\n[EPOCH {epoch+1}/{epochs} VALIDATION SUMMARY]")
+        # print(f"\n[EPOCH {epoch+1}/{epochs} VALIDATION SUMMARY]")
         # Print out comprehensive epoch stats
         epoch_avg_val_loss = accumulated_val_loss / len(val_loader)
         # print(len(val_loader))
         # print(val_targets.size(0))
         accuracy_percentage = (correct_val_predictions / total_samples) * 100
         # print(f"\n[EPOCH {epoch+1} VALIDATION SUMMARY]")
-        print(f"len(val_loader): {len(val_loader)}")
-        print(f"--> Total validation samples: {total_samples}")
-        print(f"--> Correct predictions: {correct_val_predictions}")
-        print(f"--> Accuracy on unseen data: {accuracy_percentage:.2f}%")
-        print(f"--> Average Val Loss: {epoch_avg_val_loss:.4f}")
-        
-        print("-" * 50)
+        # print(f"len(val_loader): {len(val_loader)}")
+        # print(f"--> Total validation samples: {total_samples}")
+        # print(f"--> Correct predictions: {correct_val_predictions}")
+        # print(f"--> Accuracy on unseen data: {accuracy_percentage:.2f}%")
+        # print(f"--> Average Val Loss: {epoch_avg_val_loss:.4f}")
 
-    print("\n", "Basic training and evaluation loop functional!")
+        # print(f"E{epoch + 1} Avg Val Loss:   {epoch_avg_val_loss:.4f} | Val Accuracy:   {accuracy_percentage:.2f}%")
+        val_print = f"E{(epoch + 1):02d} Avg Val Loss:   {epoch_avg_val_loss:.4f} | Val Accuracy:   {accuracy_percentage:.2f}%"
+        print(f"{train_print} | {val_print}")
+        # print("-" * 50)
 
+    print("\n", "Basic training and evaluation loop functional!\n")
+    end_time = time.perf_counter()
+    elapsed = end_time - start_time
+    print(f"Completed {epochs} epochs in {elapsed:.2f} seconds.")
+    subprocess.run(["afplay", "/System/Library/Sounds/Hero.aiff"])
+    subprocess.run(["say", "Process completed"])
  
 
     # model = MinimalCNN().to(device)
