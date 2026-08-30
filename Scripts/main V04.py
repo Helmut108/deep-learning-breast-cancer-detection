@@ -12,13 +12,11 @@ from cbismodules.training import train_model
 
 device = utils.get_device()
 
-sample_size = None
+sample_size = 512
 batch_size = 8
-epochs = 50
-learning_rate = 0.001
-early_stopping=False
-patience=5
-print(f"Sample size: {sample_size}, Batch size: {batch_size}, Epochs: {epochs}, Learning rate: {learning_rate}, Early stopping: {early_stopping}, Patience: {patience}")
+epochs = 30
+learning_rate = 0.0001
+print(f"Sample size: {sample_size}, Batch size: {batch_size}, Epochs: {epochs}, Learning rate: {learning_rate}")
 
 
 # sys.exit("Stopping here for now")
@@ -57,4 +55,4 @@ print("Model parameter device:", model_device)
 # print(f"Output shape: {outputs.shape}")
 
 # train_model(model, train_loader, val_loader,device, epochs=2)
-train_model(model, train_loader, val_loader, device, epochs=epochs, learning_rate=learning_rate, early_stopping=early_stopping, patience=patience)
+train_model(model, train_loader, val_loader, device, epochs=epochs, learning_rate=learning_rate)

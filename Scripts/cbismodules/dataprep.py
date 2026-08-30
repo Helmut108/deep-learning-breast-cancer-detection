@@ -57,9 +57,12 @@ class CBISDataset(Dataset):
 def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
     df_train = create_dataframe_from_csv(csv_path_train)
     print(f"Length of training dataframe: {len(df_train)}")
+    # print(df_train["Label"].value_counts())
+    # print(df_train["Label"].value_counts(normalize=True))
 
     if sample_size is not None:
         nbr_per_class = sample_size // 2
+        # print(f"Sampling {nbr_per_class} samples per class for a total of {nbr_per_class * 2} samples.")    
     
         df_train = (
             df_train
@@ -79,10 +82,10 @@ def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
     df_train = df_train.reset_index(drop=True)
     df_val = df_val.reset_index(drop=True)
 
-    print("\ntrain labels:")
-    print(df_train["Label"].value_counts())
-    print("\nValidation labels:")
-    print(df_val["Label"].value_counts())
+    # print("\ntrain labels:")
+    # print(df_train["Label"].value_counts())
+    # print("\nValidation labels:")
+    # print(df_val["Label"].value_counts())
 
     # print(f"Training dataset size: {len(df_train)}")
 
@@ -122,24 +125,24 @@ def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
     )
 
     print()
-    print(f"Train: {len(train_dataset)} samples, {len(train_loader)} batches")
-    print(f"Validation: {len(val_dataset)} samples, {len(val_loader)} batches")
-    print(f"Training DataLoader batch size: {train_loader.batch_size}")
-    print(f"Validation DataLoader batch size: {val_loader.batch_size}")
-    print()      
-    print(f"Training dataset size: {len(train_dataset)}")
-    print(f"Validation dataset size: {len(val_dataset)}")
-    print(f"Training DataLoader size: {len(train_loader)}")
-    print(f"Validation DataLoader size: {len(val_loader)}")
-    print(f"Training DataLoader batch size: {train_loader.batch_size}")
-    print(f"Validation DataLoader batch size: {val_loader.batch_size}")
-    print(f"Training DataLoader number of batches: {len(train_loader)}")
-    print(f"Validation DataLoader number of batches: {len(val_loader)}")
-    print(f"Training DataLoader number of samples: {len(train_loader.dataset)}")
-    print(f"Validation DataLoader number of samples: {len(val_loader.dataset)}")
-    print()
-    print(f"Train: {len(train_dataset)} samples, {len(train_loader)} batches")
-    print(f"Validation: {len(val_dataset)} samples, {len(val_loader)} batches")
+    # print(f"Train: {len(train_dataset)} samples, {len(train_loader)} batches")
+    # print(f"Validation: {len(val_dataset)} samples, {len(val_loader)} batches")
+    # print(f"Training DataLoader batch size: {train_loader.batch_size}")
+    # print(f"Validation DataLoader batch size: {val_loader.batch_size}")
+    # print()      
+    # print(f"Training dataset size: {len(train_dataset)}")
+    # print(f"Validation dataset size: {len(val_dataset)}")
+    # print(f"Training DataLoader size: {len(train_loader)}")
+    # print(f"Validation DataLoader size: {len(val_loader)}")
+    # print(f"Training DataLoader batch size: {train_loader.batch_size}")
+    # print(f"Validation DataLoader batch size: {val_loader.batch_size}")
+    # print(f"Training DataLoader number of batches: {len(train_loader)}")
+    # print(f"Validation DataLoader number of batches: {len(val_loader)}")
+    # print(f"Training DataLoader number of samples: {len(train_loader.dataset)}")
+    # print(f"Validation DataLoader number of samples: {len(val_loader.dataset)}")
+    # print()
+    # print(f"Train: {len(train_dataset)} samples, {len(train_loader)} batches")
+    # print(f"Validation: {len(val_dataset)} samples, {len(val_loader)} batches")
 
     # print(type(train_dataset))
     # print(train_dataset["Label"].value_counts())

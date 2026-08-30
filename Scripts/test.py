@@ -50,3 +50,17 @@ print(f"Completed {total_iterations:02d} iterations in {elapsed:.2f} seconds.")
 
 # Play completion chime
 subprocess.run(["afplay", "/System/Library/Sounds/Glass.aiff"])
+
+
+
+    # epochs_range = range(1, len(train_loss_history) + 1)
+    # plt.figure(figsize=(8, 4))
+    # plt.plot(epochs_range, train_loss_history, marker='o', label='Train Loss')
+    # plt.plot(epochs_range, val_loss_history, marker='o', label='Val Loss')
+    # plt.xlabel('Epoch')
+    # plt.ylabel('Loss')
+    # plt.title('Training vs Validation Loss')
+    # plt.grid(True, linestyle='--', alpha=0.5)
+    # plt.legend()
+    # plt.tight_layout()
+    # plt.show()

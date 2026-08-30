@@ -13,29 +13,32 @@ train_accuracy_history = []
 val_loss_history = []
 val_accuracy_history = []
 
-def train_model(model, train_loader, val_loader, device, epochs=10, learning_rate=0.0001, early_stopping=False, patience=3):
+def train_model(model, train_loader, val_loader, device, epochs=10, learning_rate=0.0001):
 # def train_model(model, train_loader, device, epochs=10, learning_rate=0.0001):
     print(f"Epochs: {epochs}, Learning rate: {learning_rate}")
     print(f"len(train_loader): {len(train_loader)}")
     print(f"len(val_loader): {len(val_loader)}")
     print("Device:", device)
+    
+    # # Ensure the model and batches use the same device.
+    # model = model.to(device)
+    # model_device = next(model.parameters()).device
+    # print(f"Requested device: {device}")
+    # print(f"Model parameter device: {model_device}")
+    # requested_device = torch.device(device)
+    # model_index = 0 if model_device.index is None else model_device.index
+    # requested_index = 0 if requested_device.index is None else requested_device.index
+    # assert (
+    #     model_device.type == requested_device.type
+    #     and model_index == requested_index
+    # ), f"Model is on {model_device}, but requested device is {device}"
+
     print(f"Training for {epochs} epochs")
     # sys.exit("Stopping here for now")
-
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
     # sys.exit("Stopping here for now")
-
     print("\n--- BASIC TRAINING AND EVALUATION LOOP ---\n")
-
-    epochs_without_improvement = 0
-    best_val_loss = float('inf')
-    best_epoch = 0
-
-    print(f"Early stopping: {early_stopping}, Patience: {patience} type: {type(patience)}")
-    print(f"Initial best validation loss: {best_val_loss} type: {type(best_val_loss)}")
-    print(f"Initial epochs without improvement: {epochs_without_improvement} type: {type(epochs_without_improvement)}")
-    # sys.exit("Stopping here for now")
 
     # **********************************************
     #           *** Training Loop ***
@@ -102,8 +105,8 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
 
         # print(f"E{epoch + 1} Avg Train Loss: {epoch_loss:.4f} | Train Accuracy: {epoch_accuracy:.2f}%")
         train_print = f"E{(epoch + 1):02d} Avg Train Loss: {epoch_loss:.4f} | Train Accuracy: {epoch_accuracy:.2f}%"
-        train_loss_history.append(epoch_loss)
-        train_accuracy_history.append(epoch_accuracy)
+        train_loss_history.append(round(epoch_loss, 2))
+        train_accuracy_history.append(round(epoch_accuracy, 2))
         # print(
         #     f"Epoch {epoch + 1}/{epochs} | "
         #     f"Average training loss: {epoch_loss:.4f}"
@@ -162,26 +165,10 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
 
         # print(f"E{epoch + 1} Avg Val Loss:   {epoch_avg_val_loss:.4f} | Val Accuracy:   {accuracy_percentage:.2f}%")
         val_print = f"E{(epoch + 1):02d} Avg Val Loss:   {epoch_avg_val_loss:.2f} | Val Accuracy:   {accuracy_percentage:.2f}%"
-        val_loss_history.append(epoch_avg_val_loss)
-        val_accuracy_history.append(accuracy_percentage)
+        val_loss_history.append(round(epoch_avg_val_loss, 2))
+        val_accuracy_history.append(round(accuracy_percentage, 2))
         print(f"{train_print} | {val_print}")
         # print("-" * 50)
-
-        if epoch_avg_val_loss < best_val_loss:
-            best_val_loss = epoch_avg_val_loss
-            epochs_without_improvement = 0
-            best_epoch = epoch + 1
-            torch.save(model.state_dict(), "best_model.pth")
-        elif early_stopping:
-            epochs_without_improvement += 1
-            if epochs_without_improvement >= patience:
-                print(f"Early stopping triggered after {epoch + 1} epochs \n")
-                print(f"due to no improvement in validation loss for {patience} epochs.")
-                print(
-                f"Best model saved at epoch {best_epoch} "
-                f"with validation loss {best_val_loss:.4f}"
-    )
-                break
 
     print("\n", "Basic training and evaluation loop functional!\n")
     end_time = time.perf_counter()
@@ -194,11 +181,6 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
     print(f"Validation Loss History: {val_loss_history}")
     print(f"Validation Accuracy History: {val_accuracy_history}")
 
-    print(
-    f"Best model saved at epoch {best_epoch} "
-    f"with validation loss {best_val_loss:.4f}"
-    )
-
     epochs_range = range(1, len(train_loss_history) + 1)
     plt.figure(figsize=(8, 4))
     plt.plot(epochs_range, train_loss_history, marker='o', label='Train Loss')
@@ -207,8 +189,6 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
     plt.ylabel('Loss')
     plt.title('Training vs Validation Loss')
     plt.grid(True, linestyle='--', alpha=0.5)
-    plt.axvline(x = best_epoch, color = 'g', label = 'best epoch', linestyle='--')
-
     plt.legend()
     plt.tight_layout()
     plt.show()
@@ -220,7 +200,6 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
     plt.ylabel('Accuracy (%)')
     plt.title('Training vs Validation Accuracy')
     plt.grid(True, linestyle='--', alpha=0.5)
-    plt.axvline(x = best_epoch, color = 'g', label = 'best epoch', linestyle='--')
     plt.legend()
     plt.tight_layout()
     plt.show()
