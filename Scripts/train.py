@@ -7,7 +7,7 @@ from cbismodules import utils
 # from cbismodules.transforms import ResizeAndPad
 # from cbismodules.dataprep import create_dataframe_from_csv
 from cbismodules.dataprep import prepare_datasets
-from cbismodules.model import DDSMCNN, DDSMCNN
+from cbismodules.model import DDSMCNN
 from cbismodules.training import train_model
 
 device = utils.get_device()
@@ -18,9 +18,10 @@ epochs = 50
 learning_rate = 0.001
 early_stopping=False
 patience=5
+torch.manual_seed(42)
 print(f"Sample size: {sample_size}, Batch size: {batch_size}, Epochs: {epochs}, Learning rate: {learning_rate}, Early stopping: {early_stopping}, Patience: {patience}")
 
-
+print("Torch manual seed set to 42")
 # sys.exit("Stopping here for now")
 
 # df_train = create_dataframe_from_csv(csv_path_train)

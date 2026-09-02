@@ -160,7 +160,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
         # Print out comprehensive epoch stats
         epoch_avg_val_loss = accumulated_val_loss / len(val_loader)
         scheduler.step(epoch_avg_val_loss)
-        # print(f"Epoch {epoch + 1}/{epochs} | Average validation loss: {epoch_avg_val_loss:.4f}")
+        print(f"Epoch {epoch + 1}/{epochs} | Average validation loss: {epoch_avg_val_loss:.4f}")
         learning_rate_history.append(scheduler.optimizer.param_groups[0]['lr'])
         print(f"Epoch {epoch + 1}/{epochs} | Learning rate: {scheduler.optimizer.param_groups[0]['lr']:.6f}")
         # print("Scheduler:", scheduler)
@@ -176,7 +176,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
         # print(f"--> Average Val Loss: {epoch_avg_val_loss:.4f}")
 
         # print(f"E{epoch + 1} Avg Val Loss:   {epoch_avg_val_loss:.4f} | Val Accuracy:   {accuracy_percentage:.2f}%")
-        val_print = f"E{(epoch + 1):02d} Avg Val Loss:   {epoch_avg_val_loss:.2f} | Val Accuracy:   {accuracy_percentage:.2f}% | Learning Rate: {scheduler.optimizer.param_groups[0]['lr']:.6f}"
+        val_print = f"E{(epoch + 1):02d} Avg Val Loss:   {epoch_avg_val_loss:.2f} | Val Accuracy:   {accuracy_percentage:.2f}%"
         val_loss_history.append(epoch_avg_val_loss)
         val_accuracy_history.append(accuracy_percentage)
         print(f"{train_print} | {val_print}")
@@ -186,7 +186,7 @@ def train_model(model, train_loader, val_loader, device, epochs=10, learning_rat
             best_val_loss = epoch_avg_val_loss
             epochs_without_improvement = 0
             best_epoch = epoch + 1
-            torch.save(model.state_dict(), "scheduler.pth")
+            torch.save(model.state_dict(), "best_model.pth")
         elif early_stopping:
             epochs_without_improvement += 1
             if epochs_without_improvement >= patience:
