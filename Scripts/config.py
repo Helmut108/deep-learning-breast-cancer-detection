@@ -21,7 +21,7 @@ csv_path_test = (
 )
 
 checkpoint_path = (
-    BASE_DIR / "best_model_50 epochs.pth"
+    BASE_DIR / "dropout_model.pth"
 )
 
 ddsm_path = Path(

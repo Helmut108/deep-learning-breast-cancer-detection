@@ -5,7 +5,7 @@ from torch import nn
 import torch.nn.functional as F
 
 class DDSMCNN(nn.Module):
-    def __init__(self):
+    def __init__(self, dropout_p=0.0):
         super().__init__()
 
         self.conv1 = nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, stride=1, padding=1)
@@ -44,6 +44,8 @@ class DDSMCNN(nn.Module):
         # W_out = ((128 - 2) / 2) + 1 = 64
         # So the tensor shape becomes: pool3_out= 64 x 64 x 64
 
+        self.dropout = nn.Dropout(p=dropout_p)
+
         self.fc = nn.Linear(64 * 64 * 64 , 2)  # Output layer for 2 classes: benign and malignant
 
     def forward(self, x):
@@ -80,6 +82,9 @@ class DDSMCNN(nn.Module):
         # x = x.view(-1, 64 * 64 * 64)  # Flatten the tensor for the fully connected layer
         x = torch.flatten(x, 1)
         # print("After flattening:", x.shape)
+
+        x = self.dropout(x)
+        # print("After dropout:", x.shape)
 
         # Pass the flattened vector into your linear layer
         x = self.fc(x)

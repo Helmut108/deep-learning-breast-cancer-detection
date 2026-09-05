@@ -1,0 +1,63 @@
+Using device: MPS
+Model path: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/dropout_model_2.pth
+Model name: dropout_model_2
+Sample size: None, Batch size: 8, Epochs: 50, Learning rate: 0.001, Early stopping: False, Patience: 5, Use scheduler: False Dropout probability: 0.5, Seed: 42
+Torch manual seed set to 42
+Length of training dataframe: 1318
+
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+Device: mps
+Model parameter device: mps:0
+==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+DDSMCNN                                  [1, 2]                    --
+├─Conv2d: 1-1                            [1, 16, 512, 512]         160
+├─MaxPool2d: 1-2                         [1, 16, 256, 256]         --
+├─Conv2d: 1-3                            [1, 32, 256, 256]         4,640
+├─MaxPool2d: 1-4                         [1, 32, 128, 128]         --
+├─Conv2d: 1-5                            [1, 64, 128, 128]         18,496
+├─MaxPool2d: 1-6                         [1, 64, 64, 64]           --
+├─Dropout: 1-7                           [1, 262144]               --
+├─Linear: 1-8                            [1, 2]                    524,290
+==========================================================================================
+Total params: 547,586
+Trainable params: 547,586
+Non-trainable params: 0
+Total mult-adds (Units.MEGABYTES): 649.59
+==========================================================================================
+Input size (MB): 1.05
+Forward/backward pass size (MB): 58.72
+Params size (MB): 2.19
+Estimated Total Size (MB): 61.96
+==========================================================================================
+Device after summary: mps
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+Model parameter device: mps:0
+Epochs: 50, Learning rate: 0.001
+len(train_loader): 124
+len(val_loader): 42
+Model name: dropout_model_2
+Device: mps
+Training for 50 epochs
+Use scheduler: False
+Early stopping: False
+Patience: 5

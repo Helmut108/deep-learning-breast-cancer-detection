@@ -10,7 +10,7 @@ device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-model_name = "weight_decay_model"
+model_name = "scheduler_model"
 model_path = BASE_DIR / f"{model_name}.pth"
 print(f"Model path: {model_path}")
 print(f"Model name: {model_name}")
@@ -21,6 +21,27 @@ train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_siz
 model = DDSMCNN().to(device)
 print(model)
 
+state_baseline = torch.load(
+    BASE_DIR / "baseline_model.pth",
+    map_location="cpu",
+    weights_only=True
+)
+
+
+state_dropout = torch.load(
+    BASE_DIR / "dropout_model.pth",
+    map_location="cpu",
+    weights_only=True
+)
+
+same = all(
+    torch.equal(state_baseline[key], state_dropout[key])
+    for key in state_baseline
+)
+
+print("Models identical:", same)
+
+sys.exit("Stopping here for now")
 
 model.load_state_dict(
     torch.load(
@@ -29,7 +50,10 @@ model.load_state_dict(
         weights_only=True
     )
 )
+
+
+
 print(model)
-# sys.exit("Stopping here for now")
+
 evaluate_model(model, val_loader, device)
 

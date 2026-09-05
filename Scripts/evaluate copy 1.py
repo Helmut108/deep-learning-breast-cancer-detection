@@ -10,7 +10,7 @@ device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-model_name = "weight_decay_model"
+model_name = "scheduler_model"
 model_path = BASE_DIR / f"{model_name}.pth"
 print(f"Model path: {model_path}")
 print(f"Model name: {model_name}")
