@@ -55,16 +55,9 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
 
     print("\n--- BASIC TRAINING AND EVALUATION LOOP ---\n")
 
-
-
-    print(f"Early stopping: {early_stopping}, Patience: {patience} type: {type(patience)}")
-    print(f"Initial best validation loss: {best_val_loss} type: {type(best_val_loss)}")
-    print(f"Initial epochs without improvement: {epochs_without_improvement} type: {type(epochs_without_improvement)}")
-    # sys.exit("Stopping here for now")
-
-    # **********************************************
+    # *******************************************************************
     #           *** Training Loop ***
-    # **********************************************
+    # *******************************************************************
 
     for epoch in range(epochs):
         
@@ -138,9 +131,9 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
         #     f"Average training loss: {epoch_loss:.4f}"
         # )
 
-        # **********************************************
+        # *******************************************************************
         #           *** Evaluation Loop ***
-        # **********************************************
+        # *******************************************************************
 
         # print(f"\n[EPOCH {epoch+1}/{epochs} VALIDATION]")
         model.eval()  # Set the model to evaluation mode for validation
@@ -156,6 +149,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
 
                 # Forward pass only to get predictions for validation data
                 val_output = model(val_images)
+                # print(f"Val output shape: {val_output.shape}")
 
                 # Calculate the loss for the validation data
                 batch_val_loss = criterion(val_output, val_targets)
@@ -232,30 +226,30 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     print("\n", "Basic training and evaluation loop functional!\n")
     end_time = time.perf_counter()
     elapsed = end_time - start_time
-    print(f"Completed {epochs} epochs in {elapsed:.2f} seconds.")
+    print(f"Completed {epochs} epochs in {elapsed:.2f} seconds.\n")
     subprocess.run(["afplay", "/System/Library/Sounds/Hero.aiff"])
     subprocess.run(["say", "Process completed"])
-    
-    print(f"Training Loss History: {train_loss_history}")
-    print(f"Training Accuracy History: {train_accuracy_history}")
-    print(f"Validation Loss History: {val_loss_history}")
-    print(f"Validation Accuracy History: {val_accuracy_history}")
-
+    print()
+    print(f"Training Loss History: {train_loss_history}\n")
+    print(f"Training Accuracy History: {train_accuracy_history}\n")
+    print(f"Validation Loss History: {val_loss_history}\n")
+    print(f"Validation Accuracy History: {val_accuracy_history}\n")
+    print()
     print(f"Training Loss mean: {mean(train_loss_history)}")
     print(f"Training Loss mode: {mode(train_loss_history)}")
     print(f"Training Loss min: {min(train_loss_history)}")
     print(f"Training Loss max: {max(train_loss_history)}")
-
+    print()
     print(f"Training Accuracy mean: {mean(train_accuracy_history)}")
     print(f"Training Accuracy mode: {mode(train_accuracy_history)}")
     print(f"Training Accuracy min: {min(train_accuracy_history)}")
     print(f"Training Accuracy max: {max(train_accuracy_history)}")
-
+    print()
     print(f"Validation Loss mean: {mean(val_loss_history)}")
     print(f"Validation Loss mode: {mode(val_loss_history)}")
     print(f"Validation Loss min: {min(val_loss_history)}")
     print(f"Validation Loss max: {max(val_loss_history)}")
-
+    print()
     print(f"Validation Accuracy mean: {mean(val_accuracy_history)}")
     print(f"Validation Accuracy mode: {mode(val_accuracy_history)}")
     print(f"Validation Accuracy min: {min(val_accuracy_history)}")
@@ -271,6 +265,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     plt.figure(figsize=(8, 4))
     plt.plot(epochs_range, train_loss_history, marker='o', label='Train Loss')
     plt.plot(epochs_range, val_loss_history, marker='o', label='Val Loss')
+    plt.ylim(0.55, 0.71)
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.title('Training vs Validation Loss')
@@ -284,6 +279,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     plt.figure(figsize=(8, 4))
     plt.plot(epochs_range, train_accuracy_history, marker='o', label='Train Accuracy')
     plt.plot(epochs_range, val_accuracy_history, marker='o', label='Val Accuracy')
+    plt.ylim(48, 72)
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy (%)')
     plt.title('Training vs Validation Accuracy')

@@ -8,8 +8,8 @@ import pydicom
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
 from torchvision.transforms import v2
-
-from cbismodules.transforms import ResizeAndPad
+import matplotlib.pyplot as plt
+from cbismodules.transforms import ResizeAndPad, create_transforms
 
 def create_dataframe_from_csv(csv_path_train):
 
@@ -54,7 +54,8 @@ class CBISDataset(Dataset):
 
 
 
-def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
+
+def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None, use_augmentation=False):
     df_train = create_dataframe_from_csv(csv_path_train)
     print(f"Length of training dataframe: {len(df_train)}")
     # print(df_train["Label"].value_counts())
@@ -104,14 +105,54 @@ def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None):
 
     
 
-    transform = v2.Compose([
-        v2.ToImage(),
-        v2.ToDtype(torch.float32, scale=True),
-        ResizeAndPad(512),
-        ])  
+    # transform = v2.Compose([
+    #     v2.ToImage(),
+    #     v2.ToDtype(torch.float32, scale=True),
+    #     ResizeAndPad(512),
+    #     ])  
 
-    train_dataset = CBISDataset(df_train, ddsm_path, transform=transform)
-    val_dataset = CBISDataset(df_val, ddsm_path, transform=transform)
+    train_transform, val_transform = create_transforms(use_augmentation)
+
+    train_dataset = CBISDataset(df_train, ddsm_path, transform=train_transform)
+    val_dataset = CBISDataset(df_val, ddsm_path, transform=val_transform)
+
+
+    # print("Training transform:")
+    # print(train_transform)
+    # print("Length of training dataframe: ", len(df_train))
+    # print()
+
+    # print("Validation transform:")
+    # print(val_transform)
+    # print("Length of validation dataframe: ", len(df_val))
+
+    # image, label = train_dataset[0]
+    # print("\nSample train image data train_dataset[0]:")
+    # print(image.shape)
+    # print(image.dtype)
+    # print(image.min().item(), image.max().item())
+    # print(label)
+
+    # print()
+    # print("Get 3 images from the training dataset to check if they are the same or different:")
+    # image1, label1 = train_dataset[0]
+    # image2, label2 = train_dataset[0]
+    # image3, label3 = train_dataset[0]
+
+    # print(torch.equal(image1, image2))
+    # print(torch.equal(image2, image3))
+
+    # print(label1, label2, label3)
+
+    # fig, axes = plt.subplots(1, 3, figsize=(12, 4))
+
+    # for ax, image in zip(axes, [image1, image2, image3]):
+    #     ax.imshow(image.squeeze(), cmap="gray")
+    #     ax.axis("off")
+
+    # plt.show()
+    # sys.exit("Stopping here for now")
+
 
     train_loader = DataLoader(
         train_dataset,

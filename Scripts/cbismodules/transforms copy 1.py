@@ -1,7 +1,4 @@
-from torchvision.transforms import v2
 import torchvision.transforms.functional as TF
-import torch
-from torchvision.transforms.v2 import InterpolationMode
 
 class ResizeAndPad:
     #constructor
@@ -57,28 +54,3 @@ class ResizeAndPad:
         )
         # print(f"Resized shape after padding: {image.shape}")
         return image
-
-
-def create_transforms(use_augmentation=False):
-    base_transforms = [
-        v2.ToImage(),
-        v2.ToDtype(torch.float32, scale=True),
-        ResizeAndPad(512),
-    ]
-
-    train_transforms = base_transforms.copy()
-
-    if use_augmentation:
-        train_transforms.append(
-            v2.RandomAffine(
-                degrees=2,
-                translate=(0.02, 0.02),
-                interpolation=InterpolationMode.BILINEAR,
-                fill=0
-            )
-        )
-
-    train_transform = v2.Compose(train_transforms)
-    val_transform = v2.Compose(base_transforms)
-
-    return train_transform, val_transform

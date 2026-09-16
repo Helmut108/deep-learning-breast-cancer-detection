@@ -14,20 +14,22 @@ device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-epochs = 50
+epochs = 75
 learning_rate = 0.001
 early_stopping=False
 patience=5
 use_scheduler = False
 dropout_p = 0.0
 the_seed = 42
-weight_decay= 0.001
+weight_decay= 0.0
+use_augmentation = True
 torch.manual_seed(the_seed)
-model_name = "weight_decay_model" # save the maodel with this name in the BASE_DIR
+model_name = "augmentation_model_3" # save the maodel with this name in the BASE_DIR
 model_path = BASE_DIR / f"{model_name}.pth"
+
 print(f"Model path: {model_path}")
 print(f"Model name: {model_name}")
-print(f"Sample size: {sample_size}, Batch size: {batch_size}, Epochs: {epochs}, Learning rate: {learning_rate}, Early stopping: {early_stopping}, Patience: {patience}, Use scheduler: {use_scheduler} Dropout probability: {dropout_p}, Seed: {the_seed}")
+print(f"Sample size: {sample_size}, Batch size: {batch_size}, Epochs: {epochs}, Learning rate: {learning_rate}, Early stopping: {early_stopping}, Patience: {patience}, Use scheduler: {use_scheduler}, Use augmentation: {use_augmentation}, Dropout probability: {dropout_p}, Seed: {the_seed}")
 
 print(f"Torch manual seed set to {the_seed}")
 
@@ -39,7 +41,7 @@ print(f"Torch manual seed set to {the_seed}")
 
 
 # df_train, train_dataset, train_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=64)
-train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=batch_size, sample_size=sample_size)
+train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=batch_size, sample_size=sample_size, use_augmentation=use_augmentation)
 
 # model = DDSMCNN().to(device)
 model = DDSMCNN(dropout_p=dropout_p).to(device)

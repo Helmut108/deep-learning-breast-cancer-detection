@@ -10,13 +10,14 @@ device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-model_name = "weight_decay_model"
+use_augmentation = True
+model_name = "augmentation_model_3"
 model_path = BASE_DIR / f"{model_name}.pth"
 print(f"Model path: {model_path}")
 print(f"Model name: {model_name}")
 # sys.exit("Stopping here for now")
 
-train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=batch_size, sample_size=sample_size)
+train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=batch_size, sample_size=sample_size, use_augmentation=use_augmentation)
 
 model = DDSMCNN().to(device)
 print(model)
