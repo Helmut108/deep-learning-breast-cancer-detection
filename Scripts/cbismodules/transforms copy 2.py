@@ -28,6 +28,11 @@ class ResizeAndPad:
             size=[new_height, new_width],
             antialias=True
         )
+        # print(f"Resized shape before padding: {image.shape}")
+        # plt.imshow(image.squeeze(0), cmap="gray")
+        # plt.title(f"Before padding: {tuple(image.shape)}")
+        # plt.axis("off")
+        # plt.show()
 
         # calculate necessary paddig
         pad_height = self.size - new_height
@@ -50,6 +55,7 @@ class ResizeAndPad:
             ],
             fill=0
         )
+        # print(f"Resized shape after padding: {image.shape}")
         return image
 
 
