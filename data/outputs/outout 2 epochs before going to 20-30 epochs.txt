@@ -1,0 +1,240 @@
+outout 2 epochs before going to 20-30 epochs
+
+Using device: MPS
+1318
+
+train labels:
+Label
+1    24
+0    24
+Name: count, dtype: int64
+
+Validation labels:
+Label
+0    8
+1    8
+Name: count, dtype: int64
+
+Train: 48 samples, 6 batches
+Validation: 16 samples, 2 batches
+Training DataLoader batch size: 8
+Validation DataLoader batch size: 8
+
+Training dataset size: 48
+Validation dataset size: 16
+Training DataLoader size: 6
+Validation DataLoader size: 2
+Training DataLoader batch size: 8
+Validation DataLoader batch size: 8
+Training DataLoader number of batches: 6
+Validation DataLoader number of batches: 2
+Training DataLoader number of samples: 48
+Validation DataLoader number of samples: 16
+MinimalCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (fc): Linear(in_features=1048576, out_features=2, bias=True)
+)
+Input batch shape: torch.Size([8, 1, 512, 512])
+Output shape: torch.Size([8, 2])
+len(train_loader): 6
+len(val_loader): 2
+Training for 2 epochs
+
+--- BASIC TRAINING AND EVALUATION LOOP ---
+
+
+[EPOCH 1/2 TRAINING]
+0 Batch index: 0
+.  Predicted train labels: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+. Actual train labels:    tensor([0, 1, 0, 0, 0, 1, 0, 0], device='mps:0')
+. Correct predictions in this batch: 2 / 8
+.  Total correct predictions so far: 2 / 8
+1 Batch index: 1
+.  Predicted train labels: tensor([0, 0, 0, 0, 0, 0, 0, 0], device='mps:0')
+. Actual train labels:    tensor([0, 1, 0, 1, 1, 1, 1, 1], device='mps:0')
+. Correct predictions in this batch: 2 / 8
+.  Total correct predictions so far: 4 / 16
+2 Batch index: 2
+.  Predicted train labels: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+. Actual train labels:    tensor([0, 0, 1, 1, 1, 1, 0, 0], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 8 / 24
+3 Batch index: 3
+.  Predicted train labels: tensor([0, 0, 0, 0, 0, 0, 0, 0], device='mps:0')
+. Actual train labels:    tensor([1, 0, 1, 0, 1, 0, 0, 1], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 12 / 32
+4 Batch index: 4
+.  Predicted train labels: tensor([0, 0, 1, 0, 0, 0, 1, 0], device='mps:0')
+. Actual train labels:    tensor([1, 0, 0, 1, 1, 0, 1, 0], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 16 / 40
+5 Batch index: 5
+.  Predicted train labels: tensor([0, 0, 0, 1, 1, 0, 0, 0], device='mps:0')
+. Actual train labels:    tensor([0, 1, 1, 0, 1, 1, 0, 0], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 20 / 48
+
+[EPOCH 1/2 TRAINING SUMMARY]
+len(train_loader): 6
+--> Total training samples: 48
+--> Total training samples processed: 48
+--> Correct predictions: 20
+--> Training accuracy for epoch 1: 41.67%
+--> Average training loss: 0.8233
+
+[EPOCH 1/2 VALIDATION]
+.  Predicted: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+   Actual:   tensor([0, 1, 0, 1, 0, 0, 0, 1], device='mps:0')
+   Correct predictions in this batch: 3 / 8
+   Total correct predictions so far: 3 / 8
+.  Predicted: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+   Actual:   tensor([1, 1, 1, 0, 1, 0, 1, 0], device='mps:0')
+   Correct predictions in this batch: 5 / 8
+   Total correct predictions so far: 8 / 16
+
+[EPOCH 1/2 VALIDATION SUMMARY]
+len(val_loader): 2
+--> Total validation samples: 16
+--> Correct predictions: 8
+--> Accuracy on unseen data: 50.00%
+--> Average Val Loss: 0.6954
+--------------------------------------------------
+
+[EPOCH 2/2 TRAINING]
+0 Batch index: 0
+.  Predicted train labels: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+. Actual train labels:    tensor([0, 1, 1, 1, 0, 1, 0, 0], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 4 / 8
+1 Batch index: 1
+.  Predicted train labels: tensor([1, 1, 0, 1, 1, 0, 1, 1], device='mps:0')
+. Actual train labels:    tensor([1, 0, 0, 0, 0, 1, 1, 1], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 8 / 16
+2 Batch index: 2
+.  Predicted train labels: tensor([0, 0, 1, 0, 0, 0, 0, 0], device='mps:0')
+. Actual train labels:    tensor([1, 0, 1, 0, 1, 0, 1, 1], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 12 / 24
+3 Batch index: 3
+.  Predicted train labels: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+. Actual train labels:    tensor([0, 0, 0, 1, 1, 0, 1, 1], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 16 / 32
+4 Batch index: 4
+.  Predicted train labels: tensor([0, 0, 0, 1, 0, 0, 1, 0], device='mps:0')
+. Actual train labels:    tensor([0, 0, 0, 0, 0, 1, 1, 1], device='mps:0')
+. Correct predictions in this batch: 5 / 8
+.  Total correct predictions so far: 21 / 40
+5 Batch index: 5
+.  Predicted train labels: tensor([0, 0, 0, 0, 0, 0, 0, 0], device='mps:0')
+. Actual train labels:    tensor([1, 0, 1, 0, 1, 0, 1, 0], device='mps:0')
+. Correct predictions in this batch: 4 / 8
+.  Total correct predictions so far: 25 / 48
+
+[EPOCH 2/2 TRAINING SUMMARY]
+len(train_loader): 6
+--> Total training samples: 48
+--> Total training samples processed: 48
+--> Correct predictions: 25
+--> Training accuracy for epoch 2: 52.08%
+--> Average training loss: 0.6972
+
+[EPOCH 2/2 VALIDATION]
+.  Predicted: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+   Actual:   tensor([0, 1, 0, 1, 0, 0, 0, 1], device='mps:0')
+   Correct predictions in this batch: 3 / 8
+   Total correct predictions so far: 3 / 8
+.  Predicted: tensor([1, 1, 1, 1, 1, 1, 1, 1], device='mps:0')
+   Actual:   tensor([1, 1, 1, 0, 1, 0, 1, 0], device='mps:0')
+   Correct predictions in this batch: 5 / 8
+   Total correct predictions so far: 8 / 16
+
+[EPOCH 2/2 VALIDATION SUMMARY]
+len(val_loader): 2
+--> Total validation samples: 16
+--> Correct predictions: 8
+--> Accuracy on unseen data: 50.00%
+--> Average Val Loss: 0.6986
+-------------------------------------------------
+
+
+
+[EPOCH 1/2 TRAINING SUMMARY]
+--> Training accuracy for epoch 1: 29.17%
+--> Average training loss: 0.9544
+
+[EPOCH 1/2 VALIDATION SUMMARY]
+--> Accuracy on unseen data: 50.00%
+--> Average Val Loss: 0.9133
+--------------------------------------------------
+
+[EPOCH 2/2 TRAINING SUMMARY]
+--> Training accuracy for epoch 2: 47.92%
+--> Average training loss: 0.8032
+
+[EPOCH 2/2 VALIDATION SUMMARY]
+--> Accuracy on unseen data: 62.50%
+--> Average Val Loss: 0.6778
+--------------------------------------------------
+
+
+--- BASIC TRAINING AND EVALUATION LOOP ---
+
+E1 Avg Train Loss: 0.7337 | Train Accuracy: 56.25%
+E1 Avg Val Loss:   0.8571 | Val Accuracy:   50.00%
+--------------------------------------------------
+E2 Avg Train Loss: 0.7176 | Train Accuracy: 52.08%
+E2 Avg Val Loss:   0.7389 | Val Accuracy:   50.00%
+--------------------------------------------------
+
+
+Train: 384 samples, 48 batches
+Validation: 128 samples, 16 batches
+Epochs: 30, Learning rate: 0.0001
+len(train_loader): 48
+len(val_loader): 16
+Training for 30 epochs
+
+--- BASIC TRAINING AND EVALUATION LOOP ---
+
+E01 Avg Train Loss: 0.7659 | Train Accuracy: 48.18% | E01 Avg Val Loss:   0.90 | Val Accuracy:   50.00%
+E02 Avg Train Loss: 0.7146 | Train Accuracy: 56.51% | E02 Avg Val Loss:   0.71 | Val Accuracy:   53.12%
+E03 Avg Train Loss: 0.6828 | Train Accuracy: 55.99% | E03 Avg Val Loss:   0.74 | Val Accuracy:   51.56%
+E04 Avg Train Loss: 0.6813 | Train Accuracy: 59.64% | E04 Avg Val Loss:   0.78 | Val Accuracy:   51.56%
+E05 Avg Train Loss: 0.7246 | Train Accuracy: 54.17% | E05 Avg Val Loss:   0.71 | Val Accuracy:   57.03%
+E06 Avg Train Loss: 0.6755 | Train Accuracy: 59.38% | E06 Avg Val Loss:   0.80 | Val Accuracy:   50.00%
+E07 Avg Train Loss: 0.6541 | Train Accuracy: 57.81% | E07 Avg Val Loss:   0.72 | Val Accuracy:   56.25%
+E08 Avg Train Loss: 0.6726 | Train Accuracy: 58.07% | E08 Avg Val Loss:   0.69 | Val Accuracy:   57.03%
+E09 Avg Train Loss: 0.6694 | Train Accuracy: 60.94% | E09 Avg Val Loss:   0.70 | Val Accuracy:   60.94%
+E10 Avg Train Loss: 0.6504 | Train Accuracy: 61.20% | E10 Avg Val Loss:   0.70 | Val Accuracy:   59.38%
+E11 Avg Train Loss: 0.6701 | Train Accuracy: 59.90% | E11 Avg Val Loss:   0.79 | Val Accuracy:   53.91%
+E12 Avg Train Loss: 0.6709 | Train Accuracy: 61.46% | E12 Avg Val Loss:   0.73 | Val Accuracy:   57.03%
+E13 Avg Train Loss: 0.6653 | Train Accuracy: 63.80% | E13 Avg Val Loss:   0.70 | Val Accuracy:   58.59%
+E14 Avg Train Loss: 0.6454 | Train Accuracy: 63.80% | E14 Avg Val Loss:   0.70 | Val Accuracy:   58.59%
+E15 Avg Train Loss: 0.6176 | Train Accuracy: 66.15% | E15 Avg Val Loss:   0.71 | Val Accuracy:   59.38%
+E16 Avg Train Loss: 0.6250 | Train Accuracy: 63.80% | E16 Avg Val Loss:   0.77 | Val Accuracy:   56.25%
+E17 Avg Train Loss: 0.6259 | Train Accuracy: 66.41% | E17 Avg Val Loss:   0.76 | Val Accuracy:   56.25%
+E18 Avg Train Loss: 0.6284 | Train Accuracy: 65.36% | E18 Avg Val Loss:   0.71 | Val Accuracy:   59.38%
+E19 Avg Train Loss: 0.5955 | Train Accuracy: 65.89% | E19 Avg Val Loss:   0.72 | Val Accuracy:   62.50%
+E20 Avg Train Loss: 0.5946 | Train Accuracy: 68.23% | E20 Avg Val Loss:   0.81 | Val Accuracy:   50.78%
+E21 Avg Train Loss: 0.5958 | Train Accuracy: 70.05% | E21 Avg Val Loss:   0.72 | Val Accuracy:   59.38%
+E22 Avg Train Loss: 0.5934 | Train Accuracy: 65.10% | E22 Avg Val Loss:   0.72 | Val Accuracy:   57.81%
+E23 Avg Train Loss: 0.6022 | Train Accuracy: 64.84% | E23 Avg Val Loss:   0.73 | Val Accuracy:   60.16%
+E24 Avg Train Loss: 0.5736 | Train Accuracy: 70.05% | E24 Avg Val Loss:   0.72 | Val Accuracy:   59.38%
+E25 Avg Train Loss: 0.5844 | Train Accuracy: 66.15% | E25 Avg Val Loss:   0.74 | Val Accuracy:   57.03%
+E26 Avg Train Loss: 0.5801 | Train Accuracy: 70.83% | E26 Avg Val Loss:   0.74 | Val Accuracy:   58.59%
+E27 Avg Train Loss: 0.5988 | Train Accuracy: 65.89% | E27 Avg Val Loss:   0.76 | Val Accuracy:   57.03%
+E28 Avg Train Loss: 0.5755 | Train Accuracy: 70.05% | E28 Avg Val Loss:   0.72 | Val Accuracy:   58.59%
+E29 Avg Train Loss: 0.5706 | Train Accuracy: 70.57% | E29 Avg Val Loss:   0.74 | Val Accuracy:   58.59%
+E30 Avg Train Loss: 0.5616 | Train Accuracy: 69.27% | E30 Avg Val Loss:   0.72 | Val Accuracy:   60.16%
+
+ Basic training and evaluation loop functional!
+
+Completed 30 epochs in 833.02 seconds.
+Training Loss History: [0.77, 0.71, 0.68, 0.68, 0.72, 0.68, 0.65, 0.67, 0.67, 0.65, 0.67, 0.67, 0.67, 0.65, 0.62, 0.63, 0.63, 0.63, 0.6, 0.59, 0.6, 0.59, 0.6, 0.57, 0.58, 0.58, 0.6, 0.58, 0.57, 0.56]
+Training Accuracy History: [48.18, 56.51, 55.99, 59.64, 54.17, 59.38, 57.81, 58.07, 60.94, 61.2, 59.9, 61.46, 63.8, 63.8, 66.15, 63.8, 66.41, 65.36, 65.89, 68.23, 70.05, 65.1, 64.84, 70.05, 66.15, 70.83, 65.89, 70.05, 70.57, 69.27]
+Validation Loss History: [0.9, 0.71, 0.74, 0.78, 0.71, 0.8, 0.72, 0.69, 0.7, 0.7, 0.79, 0.73, 0.7, 0.7, 0.71, 0.77, 0.76, 0.71, 0.72, 0.81, 0.72, 0.72, 0.73, 0.72, 0.74, 0.74, 0.76, 0.72, 0.74, 0.72]
+Validation Accuracy History: [50.0, 53.12, 51.56, 51.56, 57.03, 50.0, 56.25, 57.03, 60.94, 59.38, 53.91, 57.03, 58.59, 58.59, 59.38, 56.25, 56.25, 59.38, 62.5, 50.78, 59.38, 57.81, 60.16, 59.38, 57.03, 58.59, 57.03, 58.59, 58.59, 60.16]

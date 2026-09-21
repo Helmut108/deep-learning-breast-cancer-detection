@@ -1,0 +1,178 @@
+(.venv) ➜  Scripts git:(main) ✗ python train.py                                   
+Using device: MPS
+Model path: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/dropout_model_2.pth
+Model name: dropout_model_2
+Sample size: None, Batch size: 8, Epochs: 50, Learning rate: 0.001, Early stopping: False, Patience: 5, Use scheduler: False Dropout probability: 0.5, Seed: 42
+Torch manual seed set to 42
+Length of training dataframe: 1318
+
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+Device: mps
+Model parameter device: mps:0
+==========================================================================================
+Layer (type:depth-idx)                   Output Shape              Param #
+==========================================================================================
+DDSMCNN                                  [1, 2]                    --
+├─Conv2d: 1-1                            [1, 16, 512, 512]         160
+├─MaxPool2d: 1-2                         [1, 16, 256, 256]         --
+├─Conv2d: 1-3                            [1, 32, 256, 256]         4,640
+├─MaxPool2d: 1-4                         [1, 32, 128, 128]         --
+├─Conv2d: 1-5                            [1, 64, 128, 128]         18,496
+├─MaxPool2d: 1-6                         [1, 64, 64, 64]           --
+├─Dropout: 1-7                           [1, 262144]               --
+├─Linear: 1-8                            [1, 2]                    524,290
+==========================================================================================
+Total params: 547,586
+Trainable params: 547,586
+Non-trainable params: 0
+Total mult-adds (Units.MEGABYTES): 649.59
+==========================================================================================
+Input size (MB): 1.05
+Forward/backward pass size (MB): 58.72
+Params size (MB): 2.19
+Estimated Total Size (MB): 61.96
+==========================================================================================
+Device after summary: mps
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+Model parameter device: mps:0
+Epochs: 50, Learning rate: 0.001
+len(train_loader): 124
+len(val_loader): 42
+Model name: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/dropout_model_2.pth
+Device: mps
+Training for 50 epochs
+Use scheduler: False
+Early stopping: False
+Patience: 5
+Scheduler: None
+
+--- BASIC TRAINING AND EVALUATION LOOP ---
+
+Early stopping: False, Patience: 5 type: <class 'int'>
+Initial best validation loss: inf type: <class 'float'>
+Initial epochs without improvement: 0 type: <class 'int'>
+
+E01 Avg Train Loss: 0.6935 | Train Accuracy: 52.23% | E01 Avg Val Loss:   0.69 | Val Accuracy:   51.52% | 
+E02 Avg Train Loss: 0.6899 | Train Accuracy: 53.04% | E02 Avg Val Loss:   0.68 | Val Accuracy:   51.82% | 
+E03 Avg Train Loss: 0.6895 | Train Accuracy: 54.35% | E03 Avg Val Loss:   0.68 | Val Accuracy:   54.24% | 
+E04 Avg Train Loss: 0.6781 | Train Accuracy: 57.49% | E04 Avg Val Loss:   0.68 | Val Accuracy:   60.00% | 
+E05 Avg Train Loss: 0.6789 | Train Accuracy: 55.97% | E05 Avg Val Loss:   0.69 | Val Accuracy:   50.91% | 
+E06 Avg Train Loss: 0.6729 | Train Accuracy: 56.28% | E06 Avg Val Loss:   0.69 | Val Accuracy:   57.58% | 
+E07 Avg Train Loss: 0.6689 | Train Accuracy: 59.51% | E07 Avg Val Loss:   0.67 | Val Accuracy:   56.67% | 
+E08 Avg Train Loss: 0.6662 | Train Accuracy: 57.39% | E08 Avg Val Loss:   0.66 | Val Accuracy:   58.18% | 
+E09 Avg Train Loss: 0.6616 | Train Accuracy: 61.34% | E09 Avg Val Loss:   0.67 | Val Accuracy:   56.36% | 
+E10 Avg Train Loss: 0.6620 | Train Accuracy: 58.91% | E10 Avg Val Loss:   0.67 | Val Accuracy:   60.30% | 
+E11 Avg Train Loss: 0.6601 | Train Accuracy: 61.34% | E11 Avg Val Loss:   0.66 | Val Accuracy:   62.42% | 
+E12 Avg Train Loss: 0.6591 | Train Accuracy: 60.53% | E12 Avg Val Loss:   0.67 | Val Accuracy:   56.06% | 
+E13 Avg Train Loss: 0.6540 | Train Accuracy: 62.65% | E13 Avg Val Loss:   0.66 | Val Accuracy:   58.48% | 
+E14 Avg Train Loss: 0.6549 | Train Accuracy: 60.63% | E14 Avg Val Loss:   0.67 | Val Accuracy:   56.97% | 
+E15 Avg Train Loss: 0.6531 | Train Accuracy: 61.84% | E15 Avg Val Loss:   0.66 | Val Accuracy:   62.73% | 
+E16 Avg Train Loss: 0.6500 | Train Accuracy: 61.94% | E16 Avg Val Loss:   0.66 | Val Accuracy:   61.82% | 
+E17 Avg Train Loss: 0.6476 | Train Accuracy: 62.96% | E17 Avg Val Loss:   0.66 | Val Accuracy:   60.61% | 
+E18 Avg Train Loss: 0.6426 | Train Accuracy: 62.35% | E18 Avg Val Loss:   0.67 | Val Accuracy:   63.03% | 
+E19 Avg Train Loss: 0.6416 | Train Accuracy: 63.97% | E19 Avg Val Loss:   0.67 | Val Accuracy:   56.36% | 
+E20 Avg Train Loss: 0.6413 | Train Accuracy: 62.75% | E20 Avg Val Loss:   0.65 | Val Accuracy:   61.82% | 
+E21 Avg Train Loss: 0.6353 | Train Accuracy: 64.57% | E21 Avg Val Loss:   0.66 | Val Accuracy:   62.12% | 
+E22 Avg Train Loss: 0.6344 | Train Accuracy: 63.87% | E22 Avg Val Loss:   0.66 | Val Accuracy:   62.73% | 
+E23 Avg Train Loss: 0.6345 | Train Accuracy: 63.56% | E23 Avg Val Loss:   0.66 | Val Accuracy:   59.70% | 
+E24 Avg Train Loss: 0.6307 | Train Accuracy: 64.07% | E24 Avg Val Loss:   0.66 | Val Accuracy:   61.52% | 
+E25 Avg Train Loss: 0.6304 | Train Accuracy: 62.65% | E25 Avg Val Loss:   0.65 | Val Accuracy:   63.64% | 
+E26 Avg Train Loss: 0.6278 | Train Accuracy: 64.68% | E26 Avg Val Loss:   0.67 | Val Accuracy:   55.45% | 
+E27 Avg Train Loss: 0.6234 | Train Accuracy: 64.27% | E27 Avg Val Loss:   0.66 | Val Accuracy:   62.12% | 
+E28 Avg Train Loss: 0.6232 | Train Accuracy: 64.88% | E28 Avg Val Loss:   0.66 | Val Accuracy:   59.39% | 
+E29 Avg Train Loss: 0.6192 | Train Accuracy: 65.69% | E29 Avg Val Loss:   0.66 | Val Accuracy:   60.30% | 
+E30 Avg Train Loss: 0.6205 | Train Accuracy: 65.08% | E30 Avg Val Loss:   0.65 | Val Accuracy:   63.64% | 
+E31 Avg Train Loss: 0.6197 | Train Accuracy: 66.09% | E31 Avg Val Loss:   0.65 | Val Accuracy:   64.24% | 
+E32 Avg Train Loss: 0.6165 | Train Accuracy: 64.68% | E32 Avg Val Loss:   0.66 | Val Accuracy:   61.21% | 
+E33 Avg Train Loss: 0.6086 | Train Accuracy: 67.11% | E33 Avg Val Loss:   0.65 | Val Accuracy:   63.03% | 
+E34 Avg Train Loss: 0.6084 | Train Accuracy: 66.40% | E34 Avg Val Loss:   0.66 | Val Accuracy:   63.64% | 
+E35 Avg Train Loss: 0.6073 | Train Accuracy: 66.90% | E35 Avg Val Loss:   0.65 | Val Accuracy:   63.33% | 
+E36 Avg Train Loss: 0.6049 | Train Accuracy: 66.60% | E36 Avg Val Loss:   0.65 | Val Accuracy:   63.94% | 
+E37 Avg Train Loss: 0.5995 | Train Accuracy: 68.02% | E37 Avg Val Loss:   0.65 | Val Accuracy:   62.12% | 
+E38 Avg Train Loss: 0.6034 | Train Accuracy: 67.41% | E38 Avg Val Loss:   0.65 | Val Accuracy:   64.24% | 
+E39 Avg Train Loss: 0.5986 | Train Accuracy: 67.71% | E39 Avg Val Loss:   0.65 | Val Accuracy:   63.94% | 
+E40 Avg Train Loss: 0.5960 | Train Accuracy: 67.21% | E40 Avg Val Loss:   0.68 | Val Accuracy:   63.03% | 
+E41 Avg Train Loss: 0.5996 | Train Accuracy: 69.64% | E41 Avg Val Loss:   0.65 | Val Accuracy:   64.85% | 
+E42 Avg Train Loss: 0.5959 | Train Accuracy: 69.23% | E42 Avg Val Loss:   0.66 | Val Accuracy:   63.64% | 
+E43 Avg Train Loss: 0.5943 | Train Accuracy: 68.52% | E43 Avg Val Loss:   0.65 | Val Accuracy:   65.15% | 
+E44 Avg Train Loss: 0.5912 | Train Accuracy: 67.71% | E44 Avg Val Loss:   0.69 | Val Accuracy:   64.24% | 
+E45 Avg Train Loss: 0.5918 | Train Accuracy: 69.23% | E45 Avg Val Loss:   0.65 | Val Accuracy:   66.06% | 
+E46 Avg Train Loss: 0.5881 | Train Accuracy: 68.12% | E46 Avg Val Loss:   0.66 | Val Accuracy:   64.24% | 
+E47 Avg Train Loss: 0.5790 | Train Accuracy: 69.23% | E47 Avg Val Loss:   0.66 | Val Accuracy:   60.30% | 
+E48 Avg Train Loss: 0.5779 | Train Accuracy: 68.12% | E48 Avg Val Loss:   0.66 | Val Accuracy:   65.15% | 
+E49 Avg Train Loss: 0.5739 | Train Accuracy: 70.04% | E49 Avg Val Loss:   0.66 | Val Accuracy:   60.30% | 
+E50 Avg Train Loss: 0.5787 | Train Accuracy: 70.34% | E50 Avg Val Loss:   0.67 | Val Accuracy:   64.85% |
+
+
+Completed 50 epochs in 3729.70 seconds.
+
+Training Loss History: [0.6934698863375571, 0.6899353385932984, 0.6894982567717952, 0.6780596500442874, 0.6788809313889472, 0.672942667238174, 0.6689260145348888, 0.6661828222774691, 0.6616270176825985, 0.6620483653199288, 0.6600748925439773, 0.6591014869270786, 0.6540160804025589, 0.6549006053997625, 0.6531207229821913, 0.6499529331922531, 0.6475609685144117, 0.6425571256587582, 0.6415657206408439, 0.6412582039352386, 0.6352581261627136, 0.6343790348018369, 0.6344756421542936, 0.6306570679430039, 0.6303723947175087, 0.6277951112677974, 0.6233738552658789, 0.62318101212863, 0.619154419149122, 0.6204765407789138, 0.6197236966221563, 0.6164939588596744, 0.6086424526668364, 0.608367120306338, 0.607315395387911, 0.6048719772408085, 0.5995314337553517, 0.6034311517592399, 0.5985944361215637, 0.5959847528607615, 0.5996286621497523, 0.5958519897633984, 0.5943100490877705, 0.5912145686245733, 0.5917541882203471, 0.5880623445395501, 0.5790468245264022, 0.577913423459376, 0.5739377664942895, 0.5786869287971528]
+
+Training Accuracy History: [52.226720647773284, 53.036437246963565, 54.35222672064778, 57.48987854251012, 55.97165991902834, 56.2753036437247, 59.51417004048582, 57.38866396761133, 61.336032388663966, 58.906882591093115, 61.336032388663966, 60.526315789473685, 62.65182186234818, 60.627530364372475, 61.8421052631579, 61.943319838056674, 62.955465587044536, 62.34817813765182, 63.96761133603239, 62.75303643724697, 64.5748987854251, 63.8663967611336, 63.56275303643725, 64.06882591093117, 62.65182186234818, 64.67611336032388, 64.27125506072875, 64.87854251012146, 65.68825910931174, 65.08097165991903, 66.09311740890689, 64.67611336032388, 67.10526315789474, 66.39676113360325, 66.90283400809717, 66.59919028340082, 68.0161943319838, 67.4089068825911, 67.71255060728745, 67.20647773279353, 69.63562753036437, 69.23076923076923, 68.52226720647774, 67.71255060728745, 69.23076923076923, 68.11740890688259, 69.23076923076923, 68.11740890688259, 70.04048582995951, 70.34412955465586]
+
+Validation Loss History: [0.6872093923164136, 0.6837661602280357, 0.6774464462742661, 0.6763567364577091, 0.6857508504029476, 0.6924774581735784, 0.6677158334038474, 0.6642170584563053, 0.6689805363163803, 0.6721371123285005, 0.6625258510762995, 0.6684151573614641, 0.6611683505954165, 0.673775480371533, 0.6619113293561069, 0.6574601039741979, 0.6587615750052712, 0.6653448144594828, 0.6678995024074208, 0.6542703274524573, 0.6573962894352999, 0.6557574095148029, 0.6599452296892802, 0.660692265178218, 0.6514235084707086, 0.6661515456257444, 0.6555493564316721, 0.6639869776639071, 0.655959338130373, 0.6544251290234653, 0.6481857617696126, 0.6560083667437235, 0.6475579698880514, 0.6597144733775746, 0.6547622391671846, 0.6450642549630368, 0.6530996893391464, 0.6452566197424224, 0.6541010177496708, 0.675401741808111, 0.6499879204865658, 0.6606038292249043, 0.646816864158168, 0.6892059351458694, 0.6482549219420461, 0.6644648710886637, 0.6610236352140253, 0.6576800284963665, 0.6572501825563836, 0.6658866864262205]
+
+Validation Accuracy History: [51.515151515151516, 51.81818181818182, 54.24242424242425, 60.0, 50.90909090909091, 57.57575757575758, 56.666666666666664, 58.18181818181818, 56.36363636363636, 60.303030303030305, 62.42424242424243, 56.060606060606055, 58.484848484848484, 56.96969696969697, 62.727272727272734, 61.81818181818181, 60.60606060606061, 63.030303030303024, 56.36363636363636, 61.81818181818181, 62.121212121212125, 62.727272727272734, 59.696969696969695, 61.51515151515151, 63.63636363636363, 55.45454545454545, 62.121212121212125, 59.3939393939394, 60.303030303030305, 63.63636363636363, 64.24242424242425, 61.212121212121204, 63.030303030303024, 63.63636363636363, 63.33333333333333, 63.93939393939394, 62.121212121212125, 64.24242424242425, 63.93939393939394, 63.030303030303024, 64.84848484848484, 63.63636363636363, 65.15151515151516, 64.24242424242425, 66.06060606060606, 64.24242424242425, 60.303030303030305, 65.15151515151516, 60.303030303030305, 64.84848484848484]
+Best model saved at epoch 36 with validation loss 0.6451
+
+
+
+***** EVALUATE ******
+
+(.venv) ➜  Scripts git:(main) ✗ python evaluate.py
+Using device: MPS
+Model path: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/dropout_model_2.pth
+Model name: dropout_model_2
+Length of training dataframe: 1318
+
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.0, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.0, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+Total validation samples: 330
+Length of validation loader: 42
+Validation Loss: 0.6451
+Validation Accuracy: 63.94%
+Balanced Accuracy: 63.77%
+TP: 94
+FN: 65
+TN: 117
+FP: 54
+Sensitivity: 59.12%
+Specificity: 68.42%
+AUROC: 0.6769
+AUROC (sklearn): 0.6769

@@ -1,0 +1,51 @@
+
+2 conv layers
+30 epochs
+
+Epochs: 30, Learning rate: 0.0001
+len(train_loader): 48
+len(val_loader): 16
+Requested device: mps
+Model parameter device: mps:0
+Training for 30 epochs
+
+--- BASIC TRAINING AND EVALUATION LOOP ---
+
+E01 Avg Train Loss: 0.7030 | Train Accuracy: 44.53% | E01 Avg Val Loss:   0.69 | Val Accuracy:   50.00%
+E02 Avg Train Loss: 0.6930 | Train Accuracy: 53.39% | E02 Avg Val Loss:   0.69 | Val Accuracy:   53.12%
+E03 Avg Train Loss: 0.6936 | Train Accuracy: 50.26% | E03 Avg Val Loss:   0.69 | Val Accuracy:   54.69%
+E04 Avg Train Loss: 0.6820 | Train Accuracy: 56.25% | E04 Avg Val Loss:   0.70 | Val Accuracy:   50.00%
+E05 Avg Train Loss: 0.6750 | Train Accuracy: 57.29% | E05 Avg Val Loss:   0.70 | Val Accuracy:   52.34%
+E06 Avg Train Loss: 0.6775 | Train Accuracy: 58.59% | E06 Avg Val Loss:   0.69 | Val Accuracy:   51.56%
+E07 Avg Train Loss: 0.6727 | Train Accuracy: 54.95% | E07 Avg Val Loss:   0.69 | Val Accuracy:   55.47%
+E08 Avg Train Loss: 0.6743 | Train Accuracy: 58.59% | E08 Avg Val Loss:   0.68 | Val Accuracy:   57.03%
+E09 Avg Train Loss: 0.6653 | Train Accuracy: 61.46% | E09 Avg Val Loss:   0.69 | Val Accuracy:   53.91%
+E10 Avg Train Loss: 0.6631 | Train Accuracy: 55.99% | E10 Avg Val Loss:   0.68 | Val Accuracy:   52.34%
+E11 Avg Train Loss: 0.6628 | Train Accuracy: 60.16% | E11 Avg Val Loss:   0.68 | Val Accuracy:   53.12%
+E12 Avg Train Loss: 0.6610 | Train Accuracy: 61.20% | E12 Avg Val Loss:   0.68 | Val Accuracy:   57.03%
+E13 Avg Train Loss: 0.6575 | Train Accuracy: 61.72% | E13 Avg Val Loss:   0.68 | Val Accuracy:   54.69%
+E14 Avg Train Loss: 0.6570 | Train Accuracy: 63.02% | E14 Avg Val Loss:   0.69 | Val Accuracy:   54.69%
+E15 Avg Train Loss: 0.6555 | Train Accuracy: 60.42% | E15 Avg Val Loss:   0.68 | Val Accuracy:   57.81%
+E16 Avg Train Loss: 0.6478 | Train Accuracy: 62.50% | E16 Avg Val Loss:   0.70 | Val Accuracy:   55.47%
+E17 Avg Train Loss: 0.6583 | Train Accuracy: 60.42% | E17 Avg Val Loss:   0.68 | Val Accuracy:   58.59%
+E18 Avg Train Loss: 0.6487 | Train Accuracy: 64.32% | E18 Avg Val Loss:   0.68 | Val Accuracy:   58.59%
+E19 Avg Train Loss: 0.6502 | Train Accuracy: 60.16% | E19 Avg Val Loss:   0.68 | Val Accuracy:   55.47%
+E20 Avg Train Loss: 0.6460 | Train Accuracy: 61.46% | E20 Avg Val Loss:   0.68 | Val Accuracy:   57.03%
+E21 Avg Train Loss: 0.6428 | Train Accuracy: 64.06% | E21 Avg Val Loss:   0.69 | Val Accuracy:   54.69%
+E22 Avg Train Loss: 0.6461 | Train Accuracy: 61.20% | E22 Avg Val Loss:   0.69 | Val Accuracy:   53.12%
+E23 Avg Train Loss: 0.6405 | Train Accuracy: 63.80% | E23 Avg Val Loss:   0.70 | Val Accuracy:   56.25%
+E24 Avg Train Loss: 0.6401 | Train Accuracy: 61.46% | E24 Avg Val Loss:   0.69 | Val Accuracy:   53.91%
+E25 Avg Train Loss: 0.6432 | Train Accuracy: 61.72% | E25 Avg Val Loss:   0.68 | Val Accuracy:   57.81%
+E26 Avg Train Loss: 0.6320 | Train Accuracy: 63.28% | E26 Avg Val Loss:   0.69 | Val Accuracy:   52.34%
+E27 Avg Train Loss: 0.6374 | Train Accuracy: 62.24% | E27 Avg Val Loss:   0.69 | Val Accuracy:   56.25%
+E28 Avg Train Loss: 0.6322 | Train Accuracy: 64.84% | E28 Avg Val Loss:   0.69 | Val Accuracy:   53.91%
+E29 Avg Train Loss: 0.6314 | Train Accuracy: 63.80% | E29 Avg Val Loss:   0.70 | Val Accuracy:   57.81%
+E30 Avg Train Loss: 0.6418 | Train Accuracy: 62.50% | E30 Avg Val Loss:   0.69 | Val Accuracy:   57.03%
+
+ Basic training and evaluation loop functional!
+
+Completed 30 epochs in 863.35 seconds.
+Training Loss History: [0.7, 0.69, 0.69, 0.68, 0.68, 0.68, 0.67, 0.67, 0.67, 0.66, 0.66, 0.66, 0.66, 0.66, 0.66, 0.65, 0.66, 0.65, 0.65, 0.65, 0.64, 0.65, 0.64, 0.64, 0.64, 0.63, 0.64, 0.63, 0.63, 0.64]
+Training Accuracy History: [44.53, 53.39, 50.26, 56.25, 57.29, 58.59, 54.95, 58.59, 61.46, 55.99, 60.16, 61.2, 61.72, 63.02, 60.42, 62.5, 60.42, 64.32, 60.16, 61.46, 64.06, 61.2, 63.8, 61.46, 61.72, 63.28, 62.24, 64.84, 63.8, 62.5]
+Validation Loss History: [0.69, 0.69, 0.69, 0.7, 0.7, 0.69, 0.69, 0.68, 0.69, 0.68, 0.68, 0.68, 0.68, 0.69, 0.68, 0.7, 0.68, 0.68, 0.68, 0.68, 0.69, 0.69, 0.7, 0.69, 0.68, 0.69, 0.69, 0.69, 0.7, 0.69]
+Validation Accuracy History: [50.0, 53.12, 54.69, 50.0, 52.34, 51.56, 55.47, 57.03, 53.91, 52.34, 53.12, 57.03, 54.69, 54.69, 57.81, 55.47, 58.59, 58.59, 55.47, 57.03, 54.69, 53.12, 56.25, 53.91, 57.81, 52.34, 56.25, 53.91, 57.81, 57.03]

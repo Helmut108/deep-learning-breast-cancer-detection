@@ -1,0 +1,124 @@
+E01 Avg Train Loss: 0.6950 | Train Accuracy: 52.53% | E01 Avg Val Loss:   0.69 | Val Accuracy:   51.82% | 
+E02 Avg Train Loss: 0.6951 | Train Accuracy: 51.92% | E02 Avg Val Loss:   0.71 | Val Accuracy:   48.18% | 
+E03 Avg Train Loss: 0.6929 | Train Accuracy: 52.23% | E03 Avg Val Loss:   0.68 | Val Accuracy:   54.55% | 
+E04 Avg Train Loss: 0.6880 | Train Accuracy: 54.76% | E04 Avg Val Loss:   0.68 | Val Accuracy:   54.24% | 
+E05 Avg Train Loss: 0.6861 | Train Accuracy: 55.06% | E05 Avg Val Loss:   0.68 | Val Accuracy:   53.33% | 
+E06 Avg Train Loss: 0.6851 | Train Accuracy: 57.39% | E06 Avg Val Loss:   0.68 | Val Accuracy:   53.94% | 
+E07 Avg Train Loss: 0.6867 | Train Accuracy: 54.66% | E07 Avg Val Loss:   0.68 | Val Accuracy:   56.06% | 
+E08 Avg Train Loss: 0.6866 | Train Accuracy: 54.25% | E08 Avg Val Loss:   0.68 | Val Accuracy:   53.03% | 
+E09 Avg Train Loss: 0.6820 | Train Accuracy: 57.39% | E09 Avg Val Loss:   0.68 | Val Accuracy:   53.64% | 
+E10 Avg Train Loss: 0.6858 | Train Accuracy: 54.66% | E10 Avg Val Loss:   0.68 | Val Accuracy:   59.39% | 
+E11 Avg Train Loss: 0.6826 | Train Accuracy: 55.97% | E11 Avg Val Loss:   0.68 | Val Accuracy:   60.91% | 
+E12 Avg Train Loss: 0.6803 | Train Accuracy: 58.00% | E12 Avg Val Loss:   0.68 | Val Accuracy:   60.00% | 
+E13 Avg Train Loss: 0.6791 | Train Accuracy: 56.07% | E13 Avg Val Loss:   0.67 | Val Accuracy:   54.85% | 
+E14 Avg Train Loss: 0.6781 | Train Accuracy: 56.88% | E14 Avg Val Loss:   0.67 | Val Accuracy:   52.73% | 
+E15 Avg Train Loss: 0.6772 | Train Accuracy: 57.09% | E15 Avg Val Loss:   0.67 | Val Accuracy:   57.88% | 
+E16 Avg Train Loss: 0.6788 | Train Accuracy: 56.17% | E16 Avg Val Loss:   0.68 | Val Accuracy:   60.30% | 
+E17 Avg Train Loss: 0.6781 | Train Accuracy: 58.40% | E17 Avg Val Loss:   0.67 | Val Accuracy:   54.85% | 
+E18 Avg Train Loss: 0.6765 | Train Accuracy: 57.09% | E18 Avg Val Loss:   0.69 | Val Accuracy:   60.00% | 
+E19 Avg Train Loss: 0.6729 | Train Accuracy: 58.40% | E19 Avg Val Loss:   0.67 | Val Accuracy:   61.52% | 
+E20 Avg Train Loss: 0.6741 | Train Accuracy: 57.89% | E20 Avg Val Loss:   0.68 | Val Accuracy:   56.36% | 
+E21 Avg Train Loss: 0.6785 | Train Accuracy: 57.19% | E21 Avg Val Loss:   0.67 | Val Accuracy:   60.30% | 
+E22 Avg Train Loss: 0.6761 | Train Accuracy: 57.19% | E22 Avg Val Loss:   0.67 | Val Accuracy:   59.39% | 
+E23 Avg Train Loss: 0.6771 | Train Accuracy: 57.59% | E23 Avg Val Loss:   0.67 | Val Accuracy:   59.09% | 
+E24 Avg Train Loss: 0.6700 | Train Accuracy: 60.12% | E24 Avg Val Loss:   0.67 | Val Accuracy:   60.00% | 
+E25 Avg Train Loss: 0.6727 | Train Accuracy: 58.70% | E25 Avg Val Loss:   0.67 | Val Accuracy:   58.48% | 
+E26 Avg Train Loss: 0.6751 | Train Accuracy: 58.91% | E26 Avg Val Loss:   0.68 | Val Accuracy:   60.30% | 
+E27 Avg Train Loss: 0.6733 | Train Accuracy: 57.59% | E27 Avg Val Loss:   0.68 | Val Accuracy:   56.97% | 
+E28 Avg Train Loss: 0.6728 | Train Accuracy: 58.50% | E28 Avg Val Loss:   0.67 | Val Accuracy:   61.21% | 
+E29 Avg Train Loss: 0.6708 | Train Accuracy: 60.02% | E29 Avg Val Loss:   0.67 | Val Accuracy:   56.36% | 
+E30 Avg Train Loss: 0.6704 | Train Accuracy: 58.20% | E30 Avg Val Loss:   0.68 | Val Accuracy:   59.39% | 
+E31 Avg Train Loss: 0.6709 | Train Accuracy: 59.31% | E31 Avg Val Loss:   0.68 | Val Accuracy:   60.30% | 
+E32 Avg Train Loss: 0.6706 | Train Accuracy: 58.81% | E32 Avg Val Loss:   0.68 | Val Accuracy:   55.76% | 
+E33 Avg Train Loss: 0.6697 | Train Accuracy: 59.51% | E33 Avg Val Loss:   0.67 | Val Accuracy:   58.18% | 
+E34 Avg Train Loss: 0.6657 | Train Accuracy: 59.01% | E34 Avg Val Loss:   0.67 | Val Accuracy:   60.91% | 
+E35 Avg Train Loss: 0.6691 | Train Accuracy: 58.91% | E35 Avg Val Loss:   0.67 | Val Accuracy:   60.61% | 
+E36 Avg Train Loss: 0.6658 | Train Accuracy: 59.51% | E36 Avg Val Loss:   0.67 | Val Accuracy:   60.91% | 
+E37 Avg Train Loss: 0.6695 | Train Accuracy: 58.50% | E37 Avg Val Loss:   0.68 | Val Accuracy:   61.21% | 
+E38 Avg Train Loss: 0.6742 | Train Accuracy: 58.60% | E38 Avg Val Loss:   0.68 | Val Accuracy:   61.52% | 
+E39 Avg Train Loss: 0.6692 | Train Accuracy: 58.91% | E39 Avg Val Loss:   0.68 | Val Accuracy:   62.73% | 
+E40 Avg Train Loss: 0.6671 | Train Accuracy: 58.91% | E40 Avg Val Loss:   0.70 | Val Accuracy:   55.76% | 
+E41 Avg Train Loss: 0.6725 | Train Accuracy: 60.02% | E41 Avg Val Loss:   0.68 | Val Accuracy:   57.27% | 
+E42 Avg Train Loss: 0.6632 | Train Accuracy: 59.31% | E42 Avg Val Loss:   0.68 | Val Accuracy:   60.30% | 
+E43 Avg Train Loss: 0.6652 | Train Accuracy: 59.21% | E43 Avg Val Loss:   0.69 | Val Accuracy:   56.67% | 
+E44 Avg Train Loss: 0.6682 | Train Accuracy: 58.91% | E44 Avg Val Loss:   0.68 | Val Accuracy:   59.09% | 
+E45 Avg Train Loss: 0.6595 | Train Accuracy: 59.72% | E45 Avg Val Loss:   0.68 | Val Accuracy:   59.70% | 
+E46 Avg Train Loss: 0.6672 | Train Accuracy: 60.63% | E46 Avg Val Loss:   0.68 | Val Accuracy:   61.52% | 
+E47 Avg Train Loss: 0.6536 | Train Accuracy: 62.25% | E47 Avg Val Loss:   0.68 | Val Accuracy:   56.36% | 
+E48 Avg Train Loss: 0.6569 | Train Accuracy: 60.12% | E48 Avg Val Loss:   0.68 | Val Accuracy:   55.76% | 
+E49 Avg Train Loss: 0.6565 | Train Accuracy: 60.93% | E49 Avg Val Loss:   0.68 | Val Accuracy:   53.33% | 
+E50 Avg Train Loss: 0.6681 | Train Accuracy: 58.70% | E50 Avg Val Loss:   0.68 | Val Accuracy:   58.18% | 
+
+ Basic training and evaluation loop functional!
+
+Completed 50 epochs in 3945.28 seconds.
+Training Loss History: [0.6950159284376329, 0.6951022922031341, 0.6929344515646657, 0.6879843377297924, 0.6861216978680703, 0.6850936124401708, 0.6866964635349089, 0.6865911690458175, 0.6819531388821141, 0.6857986652082012, 0.6825542935440617, 0.6802701474197449, 0.6790577831768221, 0.6781441401089391, 0.6772406000283456, 0.6788386659276101, 0.6780655292734024, 0.6765288148195513, 0.672919200553048, 0.6741286021086478, 0.6785234539739547, 0.6761325785229283, 0.6771351454719421, 0.6700173491431821, 0.6727039121812389, 0.675148400568193, 0.6732881819048235, 0.6728203993651175, 0.6708209870323059, 0.6703545869358124, 0.6709450541004058, 0.6705958896106289, 0.6696972159608718, 0.6657315992539928, 0.6691313568622835, 0.6658282962537581, 0.6695338384278359, 0.6741505630554692, 0.6691646061597332, 0.6671405533148397, 0.6724891955814054, 0.6632123207373004, 0.6652132991340852, 0.6682475492838891, 0.6594757791007718, 0.6672082173247491, 0.6535720866053335, 0.6568785170393605, 0.6564817421378628, 0.6680645995563076]
+Training Accuracy History: [52.53036437246964, 51.92307692307693, 52.226720647773284, 54.75708502024291, 55.06072874493927, 57.38866396761133, 54.655870445344135, 54.25101214574899, 57.38866396761133, 54.655870445344135, 55.97165991902834, 57.99595141700404, 56.07287449392713, 56.882591093117405, 57.08502024291497, 56.174089068825914, 58.40080971659919, 57.08502024291497, 58.40080971659919, 57.89473684210527, 57.18623481781376, 57.18623481781376, 57.59109311740891, 60.12145748987854, 58.70445344129555, 58.906882591093115, 57.59109311740891, 58.502024291497975, 60.02024291497976, 58.198380566801625, 59.311740890688256, 58.80566801619433, 59.51417004048582, 59.0080971659919, 58.906882591093115, 59.51417004048582, 58.502024291497975, 58.60323886639676, 58.906882591093115, 58.906882591093115, 60.02024291497976, 59.311740890688256, 59.210526315789465, 58.906882591093115, 59.716599190283404, 60.627530364372475, 62.24696356275303, 60.12145748987854, 60.93117408906883, 58.70445344129555]
+Validation Loss History: [0.6897705800605543, 0.708728907325051, 0.6843989292780558, 0.6833524783452352, 0.6786180810494856, 0.678016602270531, 0.6772089026191018, 0.6783930988022775, 0.6814792474110921, 0.6750130920699149, 0.6768183971896317, 0.675543043830178, 0.6738214088208747, 0.6741389592488607, 0.6724700812137488, 0.6784612800135758, 0.6743126970348936, 0.6877501697251291, 0.674442872134122, 0.6759548692992239, 0.672478609012835, 0.6732663772322914, 0.6744241765051177, 0.6738066593805949, 0.6745610656160297, 0.6761156573440089, 0.6772714690728621, 0.6739734801379117, 0.6743181734374075, 0.6838484511230931, 0.6768464933742177, 0.6750969691710038, 0.6726983063148729, 0.6721545046026056, 0.6721822348507968, 0.6724818612589981, 0.678719475775054, 0.6789008725773205, 0.6757545232772827, 0.6991193113905011, 0.6758105097395001, 0.6814960031798392, 0.693062799988371, 0.6767038879972516, 0.6787483403176973, 0.6841086091417254, 0.6768697825345126, 0.6784810044548728, 0.6834462671568899, 0.6756981315034809]
+Validation Accuracy History: [51.81818181818182, 48.18181818181818, 54.54545454545454, 54.24242424242425, 53.333333333333336, 53.939393939393945, 56.060606060606055, 53.03030303030303, 53.63636363636364, 59.3939393939394, 60.909090909090914, 60.0, 54.848484848484844, 52.72727272727272, 57.878787878787875, 60.303030303030305, 54.848484848484844, 60.0, 61.51515151515151, 56.36363636363636, 60.303030303030305, 59.3939393939394, 59.09090909090909, 60.0, 58.484848484848484, 60.303030303030305, 56.96969696969697, 61.212121212121204, 56.36363636363636, 59.3939393939394, 60.303030303030305, 55.757575757575765, 58.18181818181818, 60.909090909090914, 60.60606060606061, 60.909090909090914, 61.212121212121204, 61.51515151515151, 62.727272727272734, 55.757575757575765, 57.27272727272727, 60.303030303030305, 56.666666666666664, 59.09090909090909, 59.696969696969695, 61.51515151515151, 56.36363636363636, 55.757575757575765, 53.333333333333336, 58.18181818181818]
+Training Loss mean: 0.6744149361695013
+Training Loss mode: 0.6950159284376329
+Training Loss min: 0.6535720866053335
+Training Loss max: 0.6951022922031341
+Training Accuracy mean: 57.811740890688256
+Training Accuracy mode: 58.906882591093115
+Training Accuracy min: 51.92307692307693
+Training Accuracy max: 62.24696356275303
+Validation Loss mean: 0.6786227541042097
+Validation Loss mode: 0.6897705800605543
+Validation Loss min: 0.6721545046026056
+Validation Loss max: 0.708728907325051
+Validation Accuracy mean: 57.7030303030303
+Validation Accuracy mode: 60.303030303030305
+Validation Accuracy min: 48.18181818181818
+Validation Accuracy max: 62.727272727272734
+Best model saved at epoch 34 with validation loss 0.6722
+
+(.venv) ➜  Scripts git:(main) ✗ python evaluate.py
+Using device: MPS
+Model path: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/augmentation_model.pth
+Model name: augmentation_model
+Length of training dataframe: 1318
+
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.0, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+DDSMCNN(
+  (conv1): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (pool3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (dropout): Dropout(p=0.0, inplace=False)
+  (fc): Linear(in_features=262144, out_features=2, bias=True)
+)
+Total validation samples: 330
+Length of validation loader: 42
+Validation Loss: 0.6722
+Validation Accuracy: 60.91%
+Balanced Accuracy: 60.96%
+TP: 99
+FN: 60
+TN: 102
+FP: 69
+Sensitivity: 62.26%
+Specificity: 59.65%
+AUROC: 0.6291
+AUROC (sklearn): 0.629
+
+
+
+Val loss curve looks better but val loss not. Also accuracy is worse. Accuracy declines after epoch 39.
+TP and FN improved, but Then and FP declined.
+Sensiifity is better. Good. But specificity is down. But a better balance than baseline.
+AUC is lower. A bit.
+It's a strange outcome.
+Should have normalised the graphs for better comparison. 

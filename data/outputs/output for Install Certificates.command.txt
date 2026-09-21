@@ -1,0 +1,70 @@
+Last login: Sun Sep 20 08:04:05 on console
+/Applications/Python\ 3.11/Install\ Certificates.command ; exit;
+COLORTERM=truecolor
+CONDA_EXE=/Users/helmutremse/miniforge3/bin/conda
+CONDA_PYTHON_EXE=/Users/helmutremse/miniforge3/bin/python
+CONDA_SHLVL=0
+HOME=/Users/helmutremse
+HOMEBREW_CELLAR=/usr/local/Cellar
+HOMEBREW_PREFIX=/usr/local
+HOMEBREW_REPOSITORY=/usr/local/Homebrew
+INFOPATH=/usr/local/share/info:
+LANG=en_US.UTF-8
+LC_CTYPE=UTF-8
+LESS=-R
+LOGNAME=helmutremse
+LSCOLORS=Gxfxcxdxbxegedabagacad
+LS_COLORS='di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
+OLDPWD=/Users/helmutremse
+OSLogRateLimit=64
+PAGER=less
+PATH=/Users/helmutremse/miniforge3/condabin:/Users/helmutremse/.codeium/windsurf/bin:/usr/local/opt/curl/bin:/Users/helmutremse/bin:/Users/helmutremse/Library/Python/3.9/bin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/usr/local/sbin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/TeX/texbin
+PWD=/Users/helmutremse
+SHELL=/bin/zsh
+SHLVL=1
+SSH_AUTH_SOCK=/var/run/com.apple.launchd.8ygRnafrN7/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=Apple_Terminal
+TERM_PROGRAM_VERSION=470.2
+TERM_SESSION_ID=61D8230A-3515-4AE9-BEFE-D72B2F4B0927
+TMPDIR=/var/folders/bw/b98mhbz1201br0hv6s9z63ph0000gn/T/
+USER=helmutremse
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+ZSH=/Users/helmutremse/.oh-my-zsh
+_CE_CONDA=''
+_CE_M=''
+_CONDA_EXE=/Users/helmutremse/miniforge3/bin/conda
+_CONDA_ROOT=/Users/helmutremse/miniforge3
+__CFBundleIdentifier=com.apple.Terminal
+➜  ~ /Applications/Python\ 3.11/Install\ Certificates.command ; exit;
+ -- pip install --upgrade certifi
+Collecting certifi
+  Obtaining dependency information for certifi from https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl.metadata
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 5.4 MB/s eta 0:00:00
+Installing collected packages: certifi
+Successfully installed certifi-2026.7.22
+
+[notice] A new release of pip is available: 23.2.1 -> 26.2.1
+[notice] To update, run: pip3.11 install --upgrade pip
+ -- removing any existing file or link
+ -- creating symlink to certifi certificate bundle
+ -- setting permissions
+ -- update complete
+
+Saving session...completed.
+Deleting expired sessions...none found.
+
+[Process completed]
+
+
+
+
+
+
+
+
+
+
