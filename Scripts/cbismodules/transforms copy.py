@@ -2,7 +2,11 @@ from torchvision.transforms import v2
 import torchvision.transforms.functional as TF
 import torch
 from torchvision.transforms.v2 import InterpolationMode
-import sys
+
+# if architecture == "vgg16":
+#     image_size = 448
+# else:
+#     image_size = 512
 
 class ResizeAndPad:
     #constructor
@@ -54,14 +58,7 @@ class ResizeAndPad:
         return image
 
 
-def create_transforms(architecture, use_augmentation=False):
-
-    if architecture == "vgg16":
-        image_size = 448
-    else:
-        image_size = 512
-
-
+def create_transforms(use_augmentation=False, image_size = 512):
     base_transforms = [
         v2.ToImage(),
         v2.ToDtype(torch.float32, scale=True),

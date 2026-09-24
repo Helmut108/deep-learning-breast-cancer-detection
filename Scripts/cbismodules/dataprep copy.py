@@ -55,10 +55,9 @@ class CBISDataset(Dataset):
 
 
 
-def prepare_datasets(csv_path_train, ddsm_path, architecture, batch_size=8, sample_size=None, use_augmentation=False):
+def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None, use_augmentation=False, image_size = 512):
     df_train = create_dataframe_from_csv(csv_path_train)
     print(f"Length of training dataframe: {len(df_train)}")
-
     # print(df_train["Label"].value_counts())
     # print(df_train["Label"].value_counts(normalize=True))
 
@@ -114,7 +113,7 @@ def prepare_datasets(csv_path_train, ddsm_path, architecture, batch_size=8, samp
 
 
 
-    train_transform, val_transform = create_transforms(architecture, use_augmentation)
+    train_transform, val_transform = create_transforms(use_augmentation, image_size)
 
     train_dataset = CBISDataset(df_train, ddsm_path, transform=train_transform)
     val_dataset = CBISDataset(df_val, ddsm_path, transform=val_transform)

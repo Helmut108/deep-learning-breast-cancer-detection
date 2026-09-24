@@ -14,7 +14,7 @@ device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-epochs = 50
+epochs = 2
 learning_rate = 0.001
 early_stopping=False
 patience=5
@@ -29,7 +29,10 @@ model_path = BASE_DIR / f"{model_name}.pth"
 architecture = "vgg16" # resnet18 or vgg16 or custom
 pretrained = True
 freeze_backbone = True
-
+if architecture == "vgg16":
+    image_size = 448
+else:
+    image_size = 512
 
 print(f"Model path: {model_path}")
 print(f"Model name: {model_name}")
@@ -45,7 +48,7 @@ print(f"Torch manual seed set to {the_seed}")
 
 
 # df_train, train_dataset, train_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=64)
-train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, architecture, batch_size=batch_size, sample_size=sample_size, use_augmentation=use_augmentation)
+train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=batch_size, sample_size=sample_size, use_augmentation=use_augmentation, image_size=image_size)
 
 # model = DDSMCNN().to(device)
 # model = DDSMCNN(dropout_p=dropout_p).to(device)

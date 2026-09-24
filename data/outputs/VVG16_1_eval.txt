@@ -1,0 +1,40 @@
+(.venv) ➜  Scripts git:(main) ✗ python evaluate.py
+Using device: MPS
+Model path: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/vgg16_model_1.pth
+Model name: vgg16_model_1
+Length of training dataframe: 1318
+
+Sample train image data train_dataset[0]:
+Shape:  torch.Size([3, 448, 448])
+Type:  torch.float32
+Min/Max:  -2.1179039478302 2.640000581741333
+Label:  0
+
+Get 3 images from the training dataset to check if they are the same or different:
+True
+True
+3 Labels:  0 0 0
+
+Model path: /Users/helmutremse/tempMini/23_final_3070/code/Scripts/vgg16_model_1.pth
+Architecture: vgg16
+Load result: <All keys matched successfully>
+Final layer: Linear(in_features=4096, out_features=2, bias=True)
+Batch check
+Batch shape: torch.Size([8, 3, 448, 448])
+Min/Max
+-2.1179039478302 2.6400015354156494
+Output shape: torch.Size([8, 2])
+End of batch check
+Total validation samples: 330
+Length of validation loader: 42
+Validation Loss: 0.6290
+Validation Accuracy: 63.64%
+Balanced Accuracy: 63.26%
+TP: 84
+FN: 75
+TN: 126
+FP: 45
+Sensitivity: 52.83%
+Specificity: 73.68%
+AUROC: 0.7178
+AUROC (sklearn): 0.7178

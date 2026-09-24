@@ -32,7 +32,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
 
     print("Output shape:", outputs.shape)
     print("End of batch check")
-    # sys.exit("Stopping here for now")
+    sys.exit("Stopping here for now")
     
     start_time = time.perf_counter() # Start the stopwatch
     train_loss_history = []
@@ -310,7 +310,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     plt.ylim(0.55, 0.71)
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
-    plt.title('VGG: Training vs Validation Loss')
+    plt.title('Training vs Validation Loss')
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.axvline(x = best_epoch, color = 'g', label = 'best epoch', linestyle='--')
 
@@ -324,7 +324,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     plt.ylim(48, 72)
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy (%)')
-    plt.title('VGG: Training vs Validation Accuracy')
+    plt.title('Training vs Validation Accuracy')
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.axvline(x = best_epoch, color = 'g', label = 'best epoch', linestyle='--')
     plt.legend()
