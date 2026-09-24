@@ -126,23 +126,23 @@ def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None, 
     # print(val_transform)
     # print("Length of validation dataframe: ", len(df_val))
 
-    # image, label = train_dataset[0]
-    # print("\nSample train image data train_dataset[0]:")
-    # print(image.shape)
-    # print(image.dtype)
-    # print(image.min().item(), image.max().item())
-    # print(label)
+    image, label = train_dataset[0]
+    print("\nSample train image data train_dataset[0]:")
+    print("Shape: ",image.shape)
+    print("Type: ", image.dtype)
+    print("Min/Max: ", image.min().item(), image.max().item())
+    print("Label: ", label)
 
-    # print()
-    # print("Get 3 images from the training dataset to check if they are the same or different:")
-    # image1, label1 = train_dataset[0]
-    # image2, label2 = train_dataset[0]
-    # image3, label3 = train_dataset[0]
+    print()
+    print("Get 3 images from the training dataset to check if they are the same or different:")
+    image1, label1 = train_dataset[0]
+    image2, label2 = train_dataset[0]
+    image3, label3 = train_dataset[0]
 
-    # print(torch.equal(image1, image2))
-    # print(torch.equal(image2, image3))
+    print(torch.equal(image1, image2))
+    print(torch.equal(image2, image3))
 
-    # print(label1, label2, label3)
+    print("3 Labels: ", label1, label2, label3)
 
     # fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 
@@ -164,6 +164,7 @@ def prepare_datasets(csv_path_train, ddsm_path, batch_size=8, sample_size=None, 
         batch_size=batch_size,
         shuffle=False
     )
+
 
     print()
     # print(f"Train: {len(train_dataset)} samples, {len(train_loader)} batches")

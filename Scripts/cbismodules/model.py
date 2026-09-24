@@ -3,6 +3,7 @@
 import torch
 from torch import nn
 import torch.nn.functional as F
+from torchvision.models import resnet18, ResNet18_Weights, vgg16, VGG16_Weights
 
 class DDSMCNN(nn.Module):
     def __init__(self, dropout_p=0.0):
@@ -91,3 +92,61 @@ class DDSMCNN(nn.Module):
         # print ("After fully connected layer:", x.shape)
 
         return x
+
+
+
+def build_resnet18(num_classes=2, pretrained=True, freeze_backbone=True):
+
+    weights = ResNet18_Weights.DEFAULT if pretrained else None
+    model = resnet18(weights=weights)
+
+    if freeze_backbone:
+        for param in model.parameters():
+            param.requires_grad = False
+
+    model.fc = nn.Linear(model.fc.in_features, num_classes)
+
+    return model
+
+
+def build_model(
+    architecture,
+    num_classes=2,
+    pretrained=True,
+    freeze_backbone=True,
+    dropout_p=0.0,
+    ):
+
+    if architecture == "custom":
+        return DDSMCNN(dropout_p=dropout_p)
+
+    elif architecture == "resnet18":
+        return build_resnet18(
+            num_classes=num_classes,
+            pretrained=pretrained,
+            freeze_backbone=freeze_backbone,
+        )
+
+    elif architecture == "vgg16":
+        return build_vgg16(
+        num_classes=num_classes,
+        pretrained=pretrained,
+        freeze_backbone=freeze_backbone,
+        )
+    
+    else:
+        raise ValueError(f"Unknown architecture: {architecture}")
+
+
+def build_vgg16(num_classes=2, pretrained=True, freeze_backbone=True):
+
+    weights = VGG16_Weights.DEFAULT if pretrained else None
+    model = vgg16(weights=weights)
+
+    if freeze_backbone:
+        for param in model.parameters():
+            param.requires_grad = False
+
+    model.classifier[6] = nn.Linear(model.classifier[6].in_features, num_classes)
+
+    return model

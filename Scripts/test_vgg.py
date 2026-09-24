@@ -29,3 +29,11 @@ model_vgg.to(device)
 
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(model_vgg.parameters(), lr=learning_rate, weight_decay = weight_decay)
+
+
+
+transfer_learning = "VGG"
+
+if transfer_learning == "VGG":
+
+if transfer_learning == "ResNet":

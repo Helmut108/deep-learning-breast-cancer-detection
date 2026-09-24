@@ -58,6 +58,8 @@ def create_transforms(use_augmentation=False):
         v2.ToImage(),
         v2.ToDtype(torch.float32, scale=True),
         ResizeAndPad(512),
+        v2.Grayscale(num_output_channels=3),
+        v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ]
 
     train_transforms = base_transforms.copy()

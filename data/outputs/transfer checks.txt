@@ -1,0 +1,43 @@
+
+Before grayscale
+
+Sample train image data train_dataset[0]:
+torch.Size([1, 512, 512])
+torch.float32
+0.0 1.000000238418579
+0
+
+Get 3 images from the training dataset to check if they are the same or different:
+True
+True
+0 0 0
+Stopping here for now
+
+After convert to 3 channels
+
+Sample train image data train_dataset[0]:
+torch.Size([3, 512, 512])
+torch.float32
+0.0 1.000000238418579
+0
+
+Get 3 images from the training dataset to check if they are the same or different:
+True
+True
+0 0 0
+Stopping here for now
+
+
+Now after normalization
+Sample train image data train_dataset[0]:
+torch.Size([3, 512, 512])
+torch.float32
+-2.1179039478302 2.640001058578491
+0
+
+Get 3 images from the training dataset to check if they are the same or different:
+True
+True
+0 0 0
+Stopping here for now
+

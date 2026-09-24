@@ -22,6 +22,17 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     print("Early stopping:", early_stopping)
     print(f"Patience: {patience}")
 
+    print("Batch check")
+    images, labels = next(iter(train_loader))
+
+    print("Batch shape:", images.shape)
+
+    images = images.to(device)
+    outputs = model(images)
+
+    print("Output shape:", outputs.shape)
+    print("End of batch check")
+    # sys.exit("Stopping here for now")
     
     start_time = time.perf_counter() # Start the stopwatch
     train_loss_history = []
@@ -38,8 +49,39 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
     # sys.exit("Stopping here for now")
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay = weight_decay)
+
+    # optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay = weight_decay)
+    # optimizer for transfer learning 
+    trainable_parameters = [p for p in model.parameters() if p.requires_grad]
+    optimizer = torch.optim.SGD(trainable_parameters, lr=learning_rate, weight_decay = weight_decay)
+
     print(f"Optimizer: {optimizer}")
+
+    # check correct parameters 
+    optimizer_param_ids = {
+        id(p)
+        for group in optimizer.param_groups
+        for p in group["params"]
+        }
+
+    print("Parameters in optimizer:")
+    for name, param in model.named_parameters():
+
+        for group in optimizer.param_groups:
+
+            for optimizer_param in group["params"]:
+
+                if param is optimizer_param:
+                    print(
+                        name,
+                        param.shape,
+                        "requires_grad:",
+                        param.requires_grad
+                    )
+
+    
+    # END check correct parameters
+    
     # sys.exit("Stopping here for now")
 
     scheduler = None

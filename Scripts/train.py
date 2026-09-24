@@ -7,14 +7,14 @@ from cbismodules import utils
 # from cbismodules.transforms import ResizeAndPad
 # from cbismodules.dataprep import create_dataframe_from_csv
 from cbismodules.dataprep import prepare_datasets
-from cbismodules.model import DDSMCNN
+from cbismodules.model import DDSMCNN, build_model
 from cbismodules.training import train_model
 
 device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-epochs = 75
+epochs = 50
 learning_rate = 0.001
 early_stopping=False
 patience=5
@@ -22,10 +22,13 @@ use_scheduler = False
 dropout_p = 0.0
 the_seed = 42
 weight_decay= 0.0
-use_augmentation = True
+use_augmentation = False
 torch.manual_seed(the_seed)
-model_name = "augmentation_model_3" # save the maodel with this name in the BASE_DIR
+model_name = "resnet_model_1" # save the maodel with this name in the BASE_DIR
 model_path = BASE_DIR / f"{model_name}.pth"
+architecture = "resnet18" # or vgg16 or custom
+pretrained = True
+freeze_backbone = True
 
 print(f"Model path: {model_path}")
 print(f"Model name: {model_name}")
@@ -44,8 +47,28 @@ print(f"Torch manual seed set to {the_seed}")
 train_loader, val_loader = prepare_datasets(csv_path_train, ddsm_path, batch_size=batch_size, sample_size=sample_size, use_augmentation=use_augmentation)
 
 # model = DDSMCNN().to(device)
-model = DDSMCNN(dropout_p=dropout_p).to(device)
+# model = DDSMCNN(dropout_p=dropout_p).to(device)
+
+model = build_model(
+    architecture=architecture,
+    num_classes=2,
+    pretrained=True,
+    freeze_backbone=True,
+    dropout_p=0.0,
+    ).to(device)
+
 print(model)
+
+# for name, param in model.named_parameters():
+#     if param.requires_grad:
+#         print(name, param.shape)
+
+# trainable_params = sum(
+#     p.numel() for p in model.parameters() if p.requires_grad
+# )
+
+# print("Trainable parameters:", trainable_params)
+
 # sys.exit("Stopping here for now")
 
 print("Device:", device)
@@ -57,11 +80,11 @@ print("Model parameter device:", model_device)
 # )
 # print(f"Total parameters: {total_parameters:,}")
 
-summary(model, input_size=(1, 1, 512, 512), device=device)  # (batch_size, channels, height, width)
-print("Device after summary:", device)
-print(model)
-model_device = next(model.parameters()).device
-print("Model parameter device:", model_device)
+# summary(model, input_size=(1, 1, 512, 512), device=device)  # (batch_size, channels, height, width)
+# print("Device after summary:", device)
+# print(model)
+# model_device = next(model.parameters()).device
+# print("Model parameter device:", model_device)
 # sys.exit("Stopping here for now")
 
 # images, labels = next(iter(train_loader))
