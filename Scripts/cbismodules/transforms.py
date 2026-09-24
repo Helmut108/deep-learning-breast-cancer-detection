@@ -3,6 +3,11 @@ import torchvision.transforms.functional as TF
 import torch
 from torchvision.transforms.v2 import InterpolationMode
 
+# if architecture == "vgg16":
+#     image_size = 448
+# else:
+#     image_size = 512
+
 class ResizeAndPad:
     #constructor
     def __init__(self, size):
@@ -53,11 +58,11 @@ class ResizeAndPad:
         return image
 
 
-def create_transforms(use_augmentation=False):
+def create_transforms(use_augmentation=False, image_size = 512):
     base_transforms = [
         v2.ToImage(),
         v2.ToDtype(torch.float32, scale=True),
-        ResizeAndPad(512),
+        ResizeAndPad(image_size),
         v2.Grayscale(num_output_channels=3),
         v2.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ]
