@@ -10,6 +10,21 @@ def evaluate_model(model, val_loader, device):
     model.eval()
     criterion = nn.CrossEntropyLoss()
 
+    print("Batch check")
+    images, labels = next(iter(val_loader))
+
+    print("Batch shape:", images.shape)
+
+    print("Min/Max")
+    print(images.min().item(), images.max().item())
+    images = images.to(device)
+    outputs = model(images)
+
+    print("Output shape:", outputs.shape)
+    print("End of batch check")
+    # sys.exit("Stopping here for now")
+
+
     accumulated_val_loss = 0.0
     avg_val_loss = 0.0
     accuracy = 0.0

@@ -14,7 +14,7 @@ device = utils.get_device()
 
 sample_size = None
 batch_size = 8
-epochs = 2
+epochs = 50
 learning_rate = 0.001
 early_stopping=False
 patience=5
@@ -24,9 +24,9 @@ the_seed = 42
 weight_decay= 0.0
 use_augmentation = False
 torch.manual_seed(the_seed)
-model_name = "vgg16_model_1" # save the maodel with this name in the BASE_DIR
+model_name = "resnet_model_1" # save the maodel with this name in the BASE_DIR
 model_path = BASE_DIR / f"{model_name}.pth"
-architecture = "vgg16" # resnet18 or vgg16 or custom
+architecture = "resnet18" # or vgg16 or custom
 pretrained = True
 freeze_backbone = True
 
@@ -59,15 +59,15 @@ model = build_model(
 
 print(model)
 
-for name, param in model.named_parameters():
-    if param.requires_grad:
-        print(name, param.shape)
+# for name, param in model.named_parameters():
+#     if param.requires_grad:
+#         print(name, param.shape)
 
-trainable_params = sum(
-    p.numel() for p in model.parameters() if p.requires_grad
-)
+# trainable_params = sum(
+#     p.numel() for p in model.parameters() if p.requires_grad
+# )
 
-print("Trainable parameters:", trainable_params)
+# print("Trainable parameters:", trainable_params)
 
 # sys.exit("Stopping here for now")
 
@@ -75,10 +75,10 @@ print("Device:", device)
 model_device = next(model.parameters()).device
 print("Model parameter device:", model_device)
 
-total_parameters = sum(
-    p.numel() for p in model.parameters()
-)
-print(f"Total parameters: {total_parameters:,}")
+# total_parameters = sum(
+#     p.numel() for p in model.parameters()
+# )
+# print(f"Total parameters: {total_parameters:,}")
 
 # summary(model, input_size=(1, 1, 512, 512), device=device)  # (batch_size, channels, height, width)
 # print("Device after summary:", device)

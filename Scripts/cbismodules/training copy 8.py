@@ -32,7 +32,7 @@ def train_model(model, train_loader, val_loader, device, epochs, learning_rate, 
 
     print("Output shape:", outputs.shape)
     print("End of batch check")
-    sys.exit("Stopping here for now")
+    # sys.exit("Stopping here for now")
     
     start_time = time.perf_counter() # Start the stopwatch
     train_loss_history = []
